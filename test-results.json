@@ -1,0 +1,2982 @@
+{
+  "config": {
+    "configFile": "/Users/lifetools/DemoPlaywright/playwright.config.ts",
+    "rootDir": "/Users/lifetools/DemoPlaywright/tests",
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 4
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "html",
+        {
+          "open": "never",
+          "outputFolder": "artifacts/html-report"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "test-results.json"
+        }
+      ],
+      [
+        "/Users/lifetools/DemoPlaywright/reporters/tesbo-uploader.js",
+        {
+          "apiKey": "tjswpfvdnemtwijdzaqtafvfcbsxujur",
+          "apiKeyEnv": "TESBO_API_KEY",
+          "baseUrl": "http://localhost:8080/api",
+          "reportFile": "test-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "/Users/lifetools/DemoPlaywright/artifacts/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/lifetools/DemoPlaywright/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/lifetools/DemoPlaywright/artifacts/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "id": "firefox",
+        "name": "firefox",
+        "testDir": "/Users/lifetools/DemoPlaywright/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/lifetools/DemoPlaywright/artifacts/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "id": "webkit",
+        "name": "webkit",
+        "testDir": "/Users/lifetools/DemoPlaywright/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.57.0",
+    "workers": 4,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "reporter-samples.spec.ts",
+      "file": "reporter-samples.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Reporter failure samples",
+          "file": "reporter-samples.spec.ts",
+          "line": 9,
+          "column": 1,
+          "specs": [
+            {
+              "title": "fails due to text mismatch assertion",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/Users/lifetools/DemoPlaywright/tests/reporter-samples.spec.ts",
+                        "line": 9,
+                        "column": 1
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-25T12:58:18.241Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "location": {
+                            "file": "/Users/lifetools/DemoPlaywright/tests/reporter-samples.spec.ts",
+                            "line": 9,
+                            "column": 1
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "cbf3cc898b99367ab218-29b0e0d08f3d1b339b34",
+              "file": "reporter-samples.spec.ts",
+              "line": 14,
+              "column": 7
+            },
+            {
+              "title": "fails while waiting for a missing locator",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/Users/lifetools/DemoPlaywright/tests/reporter-samples.spec.ts",
+                        "line": 9,
+                        "column": 1
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-25T12:58:18.252Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "location": {
+                            "file": "/Users/lifetools/DemoPlaywright/tests/reporter-samples.spec.ts",
+                            "line": 9,
+                            "column": 1
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "cbf3cc898b99367ab218-a4f8eec14cfaf03108cf",
+              "file": "reporter-samples.spec.ts",
+              "line": 29,
+              "column": 7
+            },
+            {
+              "title": "fails when clicking a hidden control",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/Users/lifetools/DemoPlaywright/tests/reporter-samples.spec.ts",
+                        "line": 9,
+                        "column": 1
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-25T12:58:18.256Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "location": {
+                            "file": "/Users/lifetools/DemoPlaywright/tests/reporter-samples.spec.ts",
+                            "line": 9,
+                            "column": 1
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "cbf3cc898b99367ab218-3b97889281426c5243cd",
+              "file": "reporter-samples.spec.ts",
+              "line": 41,
+              "column": 7
+            },
+            {
+              "title": "fails by throwing an explicit error",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/Users/lifetools/DemoPlaywright/tests/reporter-samples.spec.ts",
+                        "line": 9,
+                        "column": 1
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-25T12:58:18.259Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "location": {
+                            "file": "/Users/lifetools/DemoPlaywright/tests/reporter-samples.spec.ts",
+                            "line": 9,
+                            "column": 1
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "cbf3cc898b99367ab218-2ae8f5482e87ab736063",
+              "file": "reporter-samples.spec.ts",
+              "line": 55,
+              "column": 7
+            },
+            {
+              "title": "fails due to text mismatch assertion",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/Users/lifetools/DemoPlaywright/tests/reporter-samples.spec.ts",
+                        "line": 9,
+                        "column": 1
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-25T12:58:22.707Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "location": {
+                            "file": "/Users/lifetools/DemoPlaywright/tests/reporter-samples.spec.ts",
+                            "line": 9,
+                            "column": 1
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "cbf3cc898b99367ab218-687355ca921ed8468b67",
+              "file": "reporter-samples.spec.ts",
+              "line": 14,
+              "column": 7
+            },
+            {
+              "title": "fails while waiting for a missing locator",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/Users/lifetools/DemoPlaywright/tests/reporter-samples.spec.ts",
+                        "line": 9,
+                        "column": 1
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-25T12:58:22.713Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "location": {
+                            "file": "/Users/lifetools/DemoPlaywright/tests/reporter-samples.spec.ts",
+                            "line": 9,
+                            "column": 1
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "cbf3cc898b99367ab218-002c5f1f6819a46e4ee7",
+              "file": "reporter-samples.spec.ts",
+              "line": 29,
+              "column": 7
+            },
+            {
+              "title": "fails when clicking a hidden control",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/Users/lifetools/DemoPlaywright/tests/reporter-samples.spec.ts",
+                        "line": 9,
+                        "column": 1
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-25T12:58:22.718Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "location": {
+                            "file": "/Users/lifetools/DemoPlaywright/tests/reporter-samples.spec.ts",
+                            "line": 9,
+                            "column": 1
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "cbf3cc898b99367ab218-1dba865c90c01b5ab97f",
+              "file": "reporter-samples.spec.ts",
+              "line": 41,
+              "column": 7
+            },
+            {
+              "title": "fails by throwing an explicit error",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/Users/lifetools/DemoPlaywright/tests/reporter-samples.spec.ts",
+                        "line": 9,
+                        "column": 1
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-25T12:58:22.722Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "location": {
+                            "file": "/Users/lifetools/DemoPlaywright/tests/reporter-samples.spec.ts",
+                            "line": 9,
+                            "column": 1
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "cbf3cc898b99367ab218-d5e0d495b1148530203f",
+              "file": "reporter-samples.spec.ts",
+              "line": 55,
+              "column": 7
+            },
+            {
+              "title": "fails due to text mismatch assertion",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/Users/lifetools/DemoPlaywright/tests/reporter-samples.spec.ts",
+                        "line": 9,
+                        "column": 1
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-25T12:58:29.385Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "location": {
+                            "file": "/Users/lifetools/DemoPlaywright/tests/reporter-samples.spec.ts",
+                            "line": 9,
+                            "column": 1
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "cbf3cc898b99367ab218-2ae5596cb4b835457418",
+              "file": "reporter-samples.spec.ts",
+              "line": 14,
+              "column": 7
+            },
+            {
+              "title": "fails while waiting for a missing locator",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/Users/lifetools/DemoPlaywright/tests/reporter-samples.spec.ts",
+                        "line": 9,
+                        "column": 1
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-25T12:58:29.389Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "location": {
+                            "file": "/Users/lifetools/DemoPlaywright/tests/reporter-samples.spec.ts",
+                            "line": 9,
+                            "column": 1
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "cbf3cc898b99367ab218-7431bc144a683950c109",
+              "file": "reporter-samples.spec.ts",
+              "line": 29,
+              "column": 7
+            },
+            {
+              "title": "fails when clicking a hidden control",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/Users/lifetools/DemoPlaywright/tests/reporter-samples.spec.ts",
+                        "line": 9,
+                        "column": 1
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-25T12:58:29.393Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "location": {
+                            "file": "/Users/lifetools/DemoPlaywright/tests/reporter-samples.spec.ts",
+                            "line": 9,
+                            "column": 1
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "cbf3cc898b99367ab218-50ed84ea9e569bf8c6ae",
+              "file": "reporter-samples.spec.ts",
+              "line": 41,
+              "column": 7
+            },
+            {
+              "title": "fails by throwing an explicit error",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/Users/lifetools/DemoPlaywright/tests/reporter-samples.spec.ts",
+                        "line": 9,
+                        "column": 1
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-25T12:58:29.397Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "location": {
+                            "file": "/Users/lifetools/DemoPlaywright/tests/reporter-samples.spec.ts",
+                            "line": 9,
+                            "column": 1
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "cbf3cc898b99367ab218-f926d908928df6d3fff9",
+              "file": "reporter-samples.spec.ts",
+              "line": 55,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "todomvc.spec.ts",
+      "file": "todomvc.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "adds a single todo item",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1911,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Add todo \"Learn Playwright\"",
+                      "duration": 162
+                    },
+                    {
+                      "title": "Validate rendered todo text order",
+                      "duration": 53
+                    },
+                    {
+                      "title": "Check footer counter shows 1 items left",
+                      "duration": 68
+                    }
+                  ],
+                  "startTime": "2025-12-25T12:58:18.724Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-adds-a-single-todo-item-chromium/test-finished-1.png"
+                    },
+                    {
+                      "name": "action-log",
+                      "contentType": "application/json",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-adds-a-single-todo-item-chromium/attachments/action-log-0fecea8ed99c9a0b8d939ad748f3435445d2233f.json"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-adds-a-single-todo-item-chromium/video.webm"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-adds-a-single-todo-item-chromium/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c8924ce889511a6a2a40-2e1e72f808386728c3fc",
+          "file": "todomvc.spec.ts",
+          "line": 29,
+          "column": 5
+        },
+        {
+          "title": "adds multiple todos and updates the counter",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2045,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Add todo \"Learn PW\"",
+                      "duration": 124
+                    },
+                    {
+                      "title": "Add todo \"Write docs\"",
+                      "duration": 84
+                    },
+                    {
+                      "title": "Add todo \"Share demo\"",
+                      "duration": 69
+                    },
+                    {
+                      "title": "Validate rendered todo text order",
+                      "duration": 59
+                    },
+                    {
+                      "title": "Check footer counter shows 3 items left",
+                      "duration": 65
+                    }
+                  ],
+                  "startTime": "2025-12-25T12:58:18.736Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-adds-multiple-todos-and-updates-the-counter-chromium/test-finished-1.png"
+                    },
+                    {
+                      "name": "action-log",
+                      "contentType": "application/json",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-adds-multiple-todos-and-updates-the-counter-chromium/attachments/action-log-068670936fee4da87f6de100a5ae00f36d272f7b.json"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-adds-multiple-todos-and-updates-the-counter-chromium/video.webm"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-adds-multiple-todos-and-updates-the-counter-chromium/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c8924ce889511a6a2a40-1e880807ac70ee3f7ead",
+          "file": "todomvc.spec.ts",
+          "line": 35,
+          "column": 5
+        },
+        {
+          "title": "marks a todo as completed",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 2010,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Add todo \"Complete assignment\"",
+                      "duration": 117
+                    },
+                    {
+                      "title": "Toggle completion for \"Complete assignment\"",
+                      "duration": 168
+                    },
+                    {
+                      "title": "Verify todo is completed",
+                      "duration": 63
+                    }
+                  ],
+                  "startTime": "2025-12-25T12:58:18.726Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-marks-a-todo-as-completed-chromium/test-finished-1.png"
+                    },
+                    {
+                      "name": "action-log",
+                      "contentType": "application/json",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-marks-a-todo-as-completed-chromium/attachments/action-log-1140f9c38da7120b944567dff10d10bdcf815b72.json"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-marks-a-todo-as-completed-chromium/video.webm"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-marks-a-todo-as-completed-chromium/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c8924ce889511a6a2a40-2e1465606a780a9dcc0c",
+          "file": "todomvc.spec.ts",
+          "line": 41,
+          "column": 5
+        },
+        {
+          "title": "toggles all todos at once",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 2156,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Add todo \"One\"",
+                      "duration": 122
+                    },
+                    {
+                      "title": "Add todo \"Two\"",
+                      "duration": 83
+                    },
+                    {
+                      "title": "Add todo \"Three\"",
+                      "duration": 72
+                    },
+                    {
+                      "title": "Toggle all todos via master checkbox",
+                      "duration": 148
+                    },
+                    {
+                      "title": "Confirm every todo is checked",
+                      "duration": 84
+                    }
+                  ],
+                  "startTime": "2025-12-25T12:58:18.737Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-toggles-all-todos-at-once-chromium/test-finished-1.png"
+                    },
+                    {
+                      "name": "action-log",
+                      "contentType": "application/json",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-toggles-all-todos-at-once-chromium/attachments/action-log-9a7f3e567d9b44adc2631c80b515b08de1ff7f94.json"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-toggles-all-todos-at-once-chromium/video.webm"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-toggles-all-todos-at-once-chromium/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c8924ce889511a6a2a40-de63049abb62a014d542",
+          "file": "todomvc.spec.ts",
+          "line": 57,
+          "column": 5
+        },
+        {
+          "title": "edits an existing todo inline",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1298,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Add todo \"Original text\"",
+                      "duration": 135
+                    },
+                    {
+                      "title": "Enter edit mode by double clicking the label",
+                      "duration": 168
+                    },
+                    {
+                      "title": "Update todo text inside inline editor",
+                      "duration": 183
+                    },
+                    {
+                      "title": "Validate rendered todo text order",
+                      "duration": 75
+                    }
+                  ],
+                  "startTime": "2025-12-25T12:58:21.195Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-edits-an-existing-todo-inline-chromium/test-finished-1.png"
+                    },
+                    {
+                      "name": "action-log",
+                      "contentType": "application/json",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-edits-an-existing-todo-inline-chromium/attachments/action-log-aa66670b3c3e34168f9e4ec30b423b708c7c5463.json"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-edits-an-existing-todo-inline-chromium/video.webm"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-edits-an-existing-todo-inline-chromium/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c8924ce889511a6a2a40-3046c91e2400dba12d28",
+          "file": "todomvc.spec.ts",
+          "line": 84,
+          "column": 5
+        },
+        {
+          "title": "deletes a todo using the destroy button",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 1187,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Add todo \"Keep me\"",
+                      "duration": 136
+                    },
+                    {
+                      "title": "Add todo \"Remove me\"",
+                      "duration": 99
+                    },
+                    {
+                      "title": "Delete todo \"Remove me\"",
+                      "duration": 235
+                    },
+                    {
+                      "title": "Validate rendered todo text order",
+                      "duration": 59
+                    }
+                  ],
+                  "startTime": "2025-12-25T12:58:21.296Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-deletes-a-todo-using-the-destroy-button-chromium/test-finished-1.png"
+                    },
+                    {
+                      "name": "action-log",
+                      "contentType": "application/json",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-deletes-a-todo-using-the-destroy-button-chromium/attachments/action-log-e74ca3490af482aa5e8bcafef86cc1046de01ef9.json"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-deletes-a-todo-using-the-destroy-button-chromium/video.webm"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-deletes-a-todo-using-the-destroy-button-chromium/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c8924ce889511a6a2a40-ed426a351577d72660fc",
+          "file": "todomvc.spec.ts",
+          "line": 111,
+          "column": 5
+        },
+        {
+          "title": "filters to show only active todos",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 1324,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Add todo \"Active one\"",
+                      "duration": 132
+                    },
+                    {
+                      "title": "Add todo \"Completed item\"",
+                      "duration": 106
+                    },
+                    {
+                      "title": "Toggle completion for \"Completed item\"",
+                      "duration": 263
+                    },
+                    {
+                      "title": "Switch to \"Active\" filter",
+                      "duration": 122
+                    },
+                    {
+                      "title": "Validate rendered todo text order",
+                      "duration": 34
+                    }
+                  ],
+                  "startTime": "2025-12-25T12:58:21.328Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-filters-to-show-only-active-todos-chromium/test-finished-1.png"
+                    },
+                    {
+                      "name": "action-log",
+                      "contentType": "application/json",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-filters-to-show-only-active-todos-chromium/attachments/action-log-0e1935b8c64db4199effce626c702c8104d04e30.json"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-filters-to-show-only-active-todos-chromium/video.webm"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-filters-to-show-only-active-todos-chromium/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c8924ce889511a6a2a40-abd7fee41a6ea0aa4047",
+          "file": "todomvc.spec.ts",
+          "line": 117,
+          "column": 5
+        },
+        {
+          "title": "filters to show only completed todos",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 1241,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Add todo \"Todo A\"",
+                      "duration": 120
+                    },
+                    {
+                      "title": "Add todo \"Todo B\"",
+                      "duration": 67
+                    },
+                    {
+                      "title": "Toggle completion for \"Todo B\"",
+                      "duration": 198
+                    },
+                    {
+                      "title": "Switch to \"Completed\" filter",
+                      "duration": 179
+                    },
+                    {
+                      "title": "Validate rendered todo text order",
+                      "duration": 86
+                    }
+                  ],
+                  "startTime": "2025-12-25T12:58:21.409Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-filters-to-show-only-completed-todos-chromium/test-finished-1.png"
+                    },
+                    {
+                      "name": "action-log",
+                      "contentType": "application/json",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-filters-to-show-only-completed-todos-chromium/attachments/action-log-48a311e6756ec6c33301d012ce86965497746dba.json"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-filters-to-show-only-completed-todos-chromium/video.webm"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-filters-to-show-only-completed-todos-chromium/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c8924ce889511a6a2a40-595ff21e3eb5927878ea",
+          "file": "todomvc.spec.ts",
+          "line": 124,
+          "column": 5
+        },
+        {
+          "title": "clears all completed todos via the footer button",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 1001,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Add todo \"Done task\"",
+                      "duration": 83
+                    },
+                    {
+                      "title": "Add todo \"Active task\"",
+                      "duration": 50
+                    },
+                    {
+                      "title": "Toggle completion for \"Done task\"",
+                      "duration": 152
+                    },
+                    {
+                      "title": "Click Clear completed",
+                      "duration": 92
+                    },
+                    {
+                      "title": "Validate rendered todo text order",
+                      "duration": 35
+                    }
+                  ],
+                  "startTime": "2025-12-25T12:58:22.527Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-clears-all-completed-todos-via-the-footer-button-chromium/test-finished-1.png"
+                    },
+                    {
+                      "name": "action-log",
+                      "contentType": "application/json",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-clears-all-completed-todos-via-the-footer-button-chromium/attachments/action-log-c2b687a6e4bd6172e6af540826d002de6499b06b.json"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-clears-all-completed-todos-via-the-footer-button-chromium/video.webm"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-clears-all-completed-todos-via-the-footer-button-chromium/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c8924ce889511a6a2a40-cfa6616c27386f4d6696",
+          "file": "todomvc.spec.ts",
+          "line": 131,
+          "column": 5
+        },
+        {
+          "title": "persists todos after a page reload",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 791,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Add todo \"Remember me\"",
+                      "duration": 84
+                    },
+                    {
+                      "title": "Reload the page to verify persistence",
+                      "duration": 116
+                    },
+                    {
+                      "title": "Validate rendered todo text order",
+                      "duration": 49
+                    }
+                  ],
+                  "startTime": "2025-12-25T12:58:22.541Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-persists-todos-after-a-page-reload-chromium/test-finished-1.png"
+                    },
+                    {
+                      "name": "action-log",
+                      "contentType": "application/json",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-persists-todos-after-a-page-reload-chromium/attachments/action-log-f7a57bbab426b7a9c35b520cc61c1528c73fd4fe.json"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-persists-todos-after-a-page-reload-chromium/video.webm"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-persists-todos-after-a-page-reload-chromium/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c8924ce889511a6a2a40-78b085a5320baa06a65d",
+          "file": "todomvc.spec.ts",
+          "line": 146,
+          "column": 5
+        },
+        {
+          "title": "adds a single todo item",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2003,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Add todo \"Learn Playwright\"",
+                      "duration": 172
+                    },
+                    {
+                      "title": "Validate rendered todo text order",
+                      "duration": 171
+                    },
+                    {
+                      "title": "Check footer counter shows 1 items left",
+                      "duration": 114
+                    }
+                  ],
+                  "startTime": "2025-12-25T12:58:23.344Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-adds-a-single-todo-item-firefox/test-finished-1.png"
+                    },
+                    {
+                      "name": "action-log",
+                      "contentType": "application/json",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-adds-a-single-todo-item-firefox/attachments/action-log-0fecea8ed99c9a0b8d939ad748f3435445d2233f.json"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-adds-a-single-todo-item-firefox/video.webm"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-adds-a-single-todo-item-firefox/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c8924ce889511a6a2a40-7a0c40fde48f2971a1d8",
+          "file": "todomvc.spec.ts",
+          "line": 29,
+          "column": 5
+        },
+        {
+          "title": "adds multiple todos and updates the counter",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 2579,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Add todo \"Learn PW\"",
+                      "duration": 173
+                    },
+                    {
+                      "title": "Add todo \"Write docs\"",
+                      "duration": 235
+                    },
+                    {
+                      "title": "Add todo \"Share demo\"",
+                      "duration": 245
+                    },
+                    {
+                      "title": "Validate rendered todo text order",
+                      "duration": 86
+                    },
+                    {
+                      "title": "Check footer counter shows 3 items left",
+                      "duration": 90
+                    }
+                  ],
+                  "startTime": "2025-12-25T12:58:23.338Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-adds-multiple-todos-and-updates-the-counter-firefox/test-finished-1.png"
+                    },
+                    {
+                      "name": "action-log",
+                      "contentType": "application/json",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-adds-multiple-todos-and-updates-the-counter-firefox/attachments/action-log-068670936fee4da87f6de100a5ae00f36d272f7b.json"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-adds-multiple-todos-and-updates-the-counter-firefox/video.webm"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-adds-multiple-todos-and-updates-the-counter-firefox/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c8924ce889511a6a2a40-276aee55540a5a63e309",
+          "file": "todomvc.spec.ts",
+          "line": 35,
+          "column": 5
+        },
+        {
+          "title": "marks a todo as completed",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2347,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Add todo \"Complete assignment\"",
+                      "duration": 140
+                    },
+                    {
+                      "title": "Toggle completion for \"Complete assignment\"",
+                      "duration": 168
+                    },
+                    {
+                      "title": "Verify todo is completed",
+                      "duration": 146
+                    }
+                  ],
+                  "startTime": "2025-12-25T12:58:23.798Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-marks-a-todo-as-completed-firefox/test-finished-1.png"
+                    },
+                    {
+                      "name": "action-log",
+                      "contentType": "application/json",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-marks-a-todo-as-completed-firefox/attachments/action-log-1140f9c38da7120b944567dff10d10bdcf815b72.json"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-marks-a-todo-as-completed-firefox/video.webm"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-marks-a-todo-as-completed-firefox/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c8924ce889511a6a2a40-2eb0f9c0d1e53332a62c",
+          "file": "todomvc.spec.ts",
+          "line": 41,
+          "column": 5
+        },
+        {
+          "title": "toggles all todos at once",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 3003,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Add todo \"One\"",
+                      "duration": 212
+                    },
+                    {
+                      "title": "Add todo \"Two\"",
+                      "duration": 166
+                    },
+                    {
+                      "title": "Add todo \"Three\"",
+                      "duration": 304
+                    },
+                    {
+                      "title": "Toggle all todos via master checkbox",
+                      "duration": 187
+                    },
+                    {
+                      "title": "Confirm every todo is checked",
+                      "duration": 149
+                    }
+                  ],
+                  "startTime": "2025-12-25T12:58:24.024Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-toggles-all-todos-at-once-firefox/test-finished-1.png"
+                    },
+                    {
+                      "name": "action-log",
+                      "contentType": "application/json",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-toggles-all-todos-at-once-firefox/attachments/action-log-9a7f3e567d9b44adc2631c80b515b08de1ff7f94.json"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-toggles-all-todos-at-once-firefox/video.webm"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-toggles-all-todos-at-once-firefox/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c8924ce889511a6a2a40-e3fa50ea2f87e08be190",
+          "file": "todomvc.spec.ts",
+          "line": 57,
+          "column": 5
+        },
+        {
+          "title": "edits an existing todo inline",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 1615,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Add todo \"Original text\"",
+                      "duration": 226
+                    },
+                    {
+                      "title": "Enter edit mode by double clicking the label",
+                      "duration": 281
+                    },
+                    {
+                      "title": "Update todo text inside inline editor",
+                      "duration": 110
+                    },
+                    {
+                      "title": "Validate rendered todo text order",
+                      "duration": 37
+                    }
+                  ],
+                  "startTime": "2025-12-25T12:58:26.607Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-edits-an-existing-todo-inline-firefox/test-finished-1.png"
+                    },
+                    {
+                      "name": "action-log",
+                      "contentType": "application/json",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-edits-an-existing-todo-inline-firefox/attachments/action-log-aa66670b3c3e34168f9e4ec30b423b708c7c5463.json"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-edits-an-existing-todo-inline-firefox/video.webm"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-edits-an-existing-todo-inline-firefox/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c8924ce889511a6a2a40-c73f372d0c65ce7f8eea",
+          "file": "todomvc.spec.ts",
+          "line": 84,
+          "column": 5
+        },
+        {
+          "title": "deletes a todo using the destroy button",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 1335,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Add todo \"Keep me\"",
+                      "duration": 111
+                    },
+                    {
+                      "title": "Add todo \"Remove me\"",
+                      "duration": 76
+                    },
+                    {
+                      "title": "Delete todo \"Remove me\"",
+                      "duration": 188
+                    },
+                    {
+                      "title": "Validate rendered todo text order",
+                      "duration": 51
+                    }
+                  ],
+                  "startTime": "2025-12-25T12:58:27.603Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-deletes-a-todo-using-the-destroy-button-firefox/test-finished-1.png"
+                    },
+                    {
+                      "name": "action-log",
+                      "contentType": "application/json",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-deletes-a-todo-using-the-destroy-button-firefox/attachments/action-log-e74ca3490af482aa5e8bcafef86cc1046de01ef9.json"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-deletes-a-todo-using-the-destroy-button-firefox/video.webm"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-deletes-a-todo-using-the-destroy-button-firefox/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c8924ce889511a6a2a40-e5b5e1cccf9c9595e56c",
+          "file": "todomvc.spec.ts",
+          "line": 111,
+          "column": 5
+        },
+        {
+          "title": "filters to show only active todos",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 1062,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Add todo \"Active one\"",
+                      "duration": 68
+                    },
+                    {
+                      "title": "Add todo \"Completed item\"",
+                      "duration": 47
+                    },
+                    {
+                      "title": "Toggle completion for \"Completed item\"",
+                      "duration": 111
+                    },
+                    {
+                      "title": "Switch to \"Active\" filter",
+                      "duration": 127
+                    },
+                    {
+                      "title": "Validate rendered todo text order",
+                      "duration": 33
+                    }
+                  ],
+                  "startTime": "2025-12-25T12:58:28.269Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-filters-to-show-only-active-todos-firefox/test-finished-1.png"
+                    },
+                    {
+                      "name": "action-log",
+                      "contentType": "application/json",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-filters-to-show-only-active-todos-firefox/attachments/action-log-0e1935b8c64db4199effce626c702c8104d04e30.json"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-filters-to-show-only-active-todos-firefox/video.webm"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-filters-to-show-only-active-todos-firefox/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c8924ce889511a6a2a40-196349c6d1de6aba2cd2",
+          "file": "todomvc.spec.ts",
+          "line": 117,
+          "column": 5
+        },
+        {
+          "title": "filters to show only completed todos",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 1872,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Add todo \"Todo A\"",
+                      "duration": 99
+                    },
+                    {
+                      "title": "Add todo \"Todo B\"",
+                      "duration": 64
+                    },
+                    {
+                      "title": "Toggle completion for \"Todo B\"",
+                      "duration": 107
+                    },
+                    {
+                      "title": "Switch to \"Completed\" filter",
+                      "duration": 197
+                    },
+                    {
+                      "title": "Validate rendered todo text order",
+                      "duration": 120
+                    }
+                  ],
+                  "startTime": "2025-12-25T12:58:28.560Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-filters-to-show-only-completed-todos-firefox/test-finished-1.png"
+                    },
+                    {
+                      "name": "action-log",
+                      "contentType": "application/json",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-filters-to-show-only-completed-todos-firefox/attachments/action-log-48a311e6756ec6c33301d012ce86965497746dba.json"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-filters-to-show-only-completed-todos-firefox/video.webm"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-filters-to-show-only-completed-todos-firefox/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c8924ce889511a6a2a40-738cf3e5fcbe2ec102ab",
+          "file": "todomvc.spec.ts",
+          "line": 124,
+          "column": 5
+        },
+        {
+          "title": "clears all completed todos via the footer button",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1639,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Add todo \"Done task\"",
+                      "duration": 132
+                    },
+                    {
+                      "title": "Add todo \"Active task\"",
+                      "duration": 109
+                    },
+                    {
+                      "title": "Toggle completion for \"Done task\"",
+                      "duration": 98
+                    },
+                    {
+                      "title": "Click Clear completed",
+                      "duration": 164
+                    },
+                    {
+                      "title": "Validate rendered todo text order",
+                      "duration": 84
+                    }
+                  ],
+                  "startTime": "2025-12-25T12:58:28.661Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-clears-all-completed-todos-via-the-footer-button-firefox/test-finished-1.png"
+                    },
+                    {
+                      "name": "action-log",
+                      "contentType": "application/json",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-clears-all-completed-todos-via-the-footer-button-firefox/attachments/action-log-c2b687a6e4bd6172e6af540826d002de6499b06b.json"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-clears-all-completed-todos-via-the-footer-button-firefox/video.webm"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-clears-all-completed-todos-via-the-footer-button-firefox/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c8924ce889511a6a2a40-683ac1d55d39e33ddac4",
+          "file": "todomvc.spec.ts",
+          "line": 131,
+          "column": 5
+        },
+        {
+          "title": "persists todos after a page reload",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 1543,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Add todo \"Remember me\"",
+                      "duration": 83
+                    },
+                    {
+                      "title": "Reload the page to verify persistence",
+                      "duration": 717
+                    },
+                    {
+                      "title": "Validate rendered todo text order",
+                      "duration": 64
+                    }
+                  ],
+                  "startTime": "2025-12-25T12:58:28.974Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-persists-todos-after-a-page-reload-firefox/test-finished-1.png"
+                    },
+                    {
+                      "name": "action-log",
+                      "contentType": "application/json",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-persists-todos-after-a-page-reload-firefox/attachments/action-log-f7a57bbab426b7a9c35b520cc61c1528c73fd4fe.json"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-persists-todos-after-a-page-reload-firefox/video.webm"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-persists-todos-after-a-page-reload-firefox/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c8924ce889511a6a2a40-69de69a76d46420e28a2",
+          "file": "todomvc.spec.ts",
+          "line": 146,
+          "column": 5
+        },
+        {
+          "title": "adds a single todo item",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2079,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Add todo \"Learn Playwright\"",
+                      "duration": 233
+                    },
+                    {
+                      "title": "Validate rendered todo text order",
+                      "duration": 118
+                    },
+                    {
+                      "title": "Check footer counter shows 1 items left",
+                      "duration": 114
+                    }
+                  ],
+                  "startTime": "2025-12-25T12:58:30.773Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-adds-a-single-todo-item-webkit/test-finished-1.png"
+                    },
+                    {
+                      "name": "action-log",
+                      "contentType": "application/json",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-adds-a-single-todo-item-webkit/attachments/action-log-0fecea8ed99c9a0b8d939ad748f3435445d2233f.json"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-adds-a-single-todo-item-webkit/video.webm"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-adds-a-single-todo-item-webkit/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c8924ce889511a6a2a40-d042c3f49c389ad82f4a",
+          "file": "todomvc.spec.ts",
+          "line": 29,
+          "column": 5
+        },
+        {
+          "title": "adds multiple todos and updates the counter",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 9,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2169,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Add todo \"Learn PW\"",
+                      "duration": 220
+                    },
+                    {
+                      "title": "Add todo \"Write docs\"",
+                      "duration": 192
+                    },
+                    {
+                      "title": "Add todo \"Share demo\"",
+                      "duration": 112
+                    },
+                    {
+                      "title": "Validate rendered todo text order",
+                      "duration": 57
+                    },
+                    {
+                      "title": "Check footer counter shows 3 items left",
+                      "duration": 108
+                    }
+                  ],
+                  "startTime": "2025-12-25T12:58:31.288Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-adds-multiple-todos-and-updates-the-counter-webkit/test-finished-1.png"
+                    },
+                    {
+                      "name": "action-log",
+                      "contentType": "application/json",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-adds-multiple-todos-and-updates-the-counter-webkit/attachments/action-log-068670936fee4da87f6de100a5ae00f36d272f7b.json"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-adds-multiple-todos-and-updates-the-counter-webkit/video.webm"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-adds-multiple-todos-and-updates-the-counter-webkit/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c8924ce889511a6a2a40-4f61e986986e5421a61a",
+          "file": "todomvc.spec.ts",
+          "line": 35,
+          "column": 5
+        },
+        {
+          "title": "marks a todo as completed",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 1765,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Add todo \"Complete assignment\"",
+                      "duration": 244
+                    },
+                    {
+                      "title": "Toggle completion for \"Complete assignment\"",
+                      "duration": 150
+                    },
+                    {
+                      "title": "Verify todo is completed",
+                      "duration": 82
+                    }
+                  ],
+                  "startTime": "2025-12-25T12:58:31.396Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-marks-a-todo-as-completed-webkit/test-finished-1.png"
+                    },
+                    {
+                      "name": "action-log",
+                      "contentType": "application/json",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-marks-a-todo-as-completed-webkit/attachments/action-log-1140f9c38da7120b944567dff10d10bdcf815b72.json"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-marks-a-todo-as-completed-webkit/video.webm"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-marks-a-todo-as-completed-webkit/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c8924ce889511a6a2a40-f84df6571f738548fac7",
+          "file": "todomvc.spec.ts",
+          "line": 41,
+          "column": 5
+        },
+        {
+          "title": "toggles all todos at once",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 2030,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Add todo \"One\"",
+                      "duration": 200
+                    },
+                    {
+                      "title": "Add todo \"Two\"",
+                      "duration": 142
+                    },
+                    {
+                      "title": "Add todo \"Three\"",
+                      "duration": 106
+                    },
+                    {
+                      "title": "Toggle all todos via master checkbox",
+                      "duration": 212
+                    },
+                    {
+                      "title": "Confirm every todo is checked",
+                      "duration": 150
+                    }
+                  ],
+                  "startTime": "2025-12-25T12:58:31.563Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-toggles-all-todos-at-once-webkit/test-finished-1.png"
+                    },
+                    {
+                      "name": "action-log",
+                      "contentType": "application/json",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-toggles-all-todos-at-once-webkit/attachments/action-log-9a7f3e567d9b44adc2631c80b515b08de1ff7f94.json"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-toggles-all-todos-at-once-webkit/video.webm"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-toggles-all-todos-at-once-webkit/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c8924ce889511a6a2a40-ba498e4245563f705503",
+          "file": "todomvc.spec.ts",
+          "line": 57,
+          "column": 5
+        },
+        {
+          "title": "edits an existing todo inline",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 1007,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Add todo \"Original text\"",
+                      "duration": 113
+                    },
+                    {
+                      "title": "Enter edit mode by double clicking the label",
+                      "duration": 87
+                    },
+                    {
+                      "title": "Update todo text inside inline editor",
+                      "duration": 76
+                    },
+                    {
+                      "title": "Validate rendered todo text order",
+                      "duration": 81
+                    }
+                  ],
+                  "startTime": "2025-12-25T12:58:33.448Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-edits-an-existing-todo-inline-webkit/test-finished-1.png"
+                    },
+                    {
+                      "name": "action-log",
+                      "contentType": "application/json",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-edits-an-existing-todo-inline-webkit/attachments/action-log-aa66670b3c3e34168f9e4ec30b423b708c7c5463.json"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-edits-an-existing-todo-inline-webkit/video.webm"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-edits-an-existing-todo-inline-webkit/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c8924ce889511a6a2a40-878cac50062cf1849a3f",
+          "file": "todomvc.spec.ts",
+          "line": 84,
+          "column": 5
+        },
+        {
+          "title": "deletes a todo using the destroy button",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 1444,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Add todo \"Keep me\"",
+                      "duration": 158
+                    },
+                    {
+                      "title": "Add todo \"Remove me\"",
+                      "duration": 159
+                    },
+                    {
+                      "title": "Delete todo \"Remove me\"",
+                      "duration": 143
+                    },
+                    {
+                      "title": "Validate rendered todo text order",
+                      "duration": 88
+                    }
+                  ],
+                  "startTime": "2025-12-25T12:58:33.617Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-deletes-a-todo-using-the-destroy-button-webkit/test-finished-1.png"
+                    },
+                    {
+                      "name": "action-log",
+                      "contentType": "application/json",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-deletes-a-todo-using-the-destroy-button-webkit/attachments/action-log-e74ca3490af482aa5e8bcafef86cc1046de01ef9.json"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-deletes-a-todo-using-the-destroy-button-webkit/video.webm"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-deletes-a-todo-using-the-destroy-button-webkit/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c8924ce889511a6a2a40-83b9e26938b21221d4c1",
+          "file": "todomvc.spec.ts",
+          "line": 111,
+          "column": 5
+        },
+        {
+          "title": "filters to show only active todos",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 9,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1607,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Add todo \"Active one\"",
+                      "duration": 213
+                    },
+                    {
+                      "title": "Add todo \"Completed item\"",
+                      "duration": 104
+                    },
+                    {
+                      "title": "Toggle completion for \"Completed item\"",
+                      "duration": 166
+                    },
+                    {
+                      "title": "Switch to \"Active\" filter",
+                      "duration": 220
+                    },
+                    {
+                      "title": "Validate rendered todo text order",
+                      "duration": 93
+                    }
+                  ],
+                  "startTime": "2025-12-25T12:58:33.781Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-filters-to-show-only-active-todos-webkit/test-finished-1.png"
+                    },
+                    {
+                      "name": "action-log",
+                      "contentType": "application/json",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-filters-to-show-only-active-todos-webkit/attachments/action-log-0e1935b8c64db4199effce626c702c8104d04e30.json"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-filters-to-show-only-active-todos-webkit/video.webm"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-filters-to-show-only-active-todos-webkit/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c8924ce889511a6a2a40-274d6ecc353f63aeeda0",
+          "file": "todomvc.spec.ts",
+          "line": 117,
+          "column": 5
+        },
+        {
+          "title": "filters to show only completed todos",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 1496,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Add todo \"Todo A\"",
+                      "duration": 138
+                    },
+                    {
+                      "title": "Add todo \"Todo B\"",
+                      "duration": 105
+                    },
+                    {
+                      "title": "Toggle completion for \"Todo B\"",
+                      "duration": 153
+                    },
+                    {
+                      "title": "Switch to \"Completed\" filter",
+                      "duration": 185
+                    },
+                    {
+                      "title": "Validate rendered todo text order",
+                      "duration": 83
+                    }
+                  ],
+                  "startTime": "2025-12-25T12:58:33.943Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-filters-to-show-only-completed-todos-webkit/test-finished-1.png"
+                    },
+                    {
+                      "name": "action-log",
+                      "contentType": "application/json",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-filters-to-show-only-completed-todos-webkit/attachments/action-log-48a311e6756ec6c33301d012ce86965497746dba.json"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-filters-to-show-only-completed-todos-webkit/video.webm"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-filters-to-show-only-completed-todos-webkit/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c8924ce889511a6a2a40-0535152d53ec1d260140",
+          "file": "todomvc.spec.ts",
+          "line": 124,
+          "column": 5
+        },
+        {
+          "title": "clears all completed todos via the footer button",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 1284,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Add todo \"Done task\"",
+                      "duration": 214
+                    },
+                    {
+                      "title": "Add todo \"Active task\"",
+                      "duration": 139
+                    },
+                    {
+                      "title": "Toggle completion for \"Done task\"",
+                      "duration": 102
+                    },
+                    {
+                      "title": "Click Clear completed",
+                      "duration": 81
+                    },
+                    {
+                      "title": "Validate rendered todo text order",
+                      "duration": 55
+                    }
+                  ],
+                  "startTime": "2025-12-25T12:58:34.505Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-clears-all-completed-todos-via-the-footer-button-webkit/test-finished-1.png"
+                    },
+                    {
+                      "name": "action-log",
+                      "contentType": "application/json",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-clears-all-completed-todos-via-the-footer-button-webkit/attachments/action-log-c2b687a6e4bd6172e6af540826d002de6499b06b.json"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-clears-all-completed-todos-via-the-footer-button-webkit/video.webm"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-clears-all-completed-todos-via-the-footer-button-webkit/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c8924ce889511a6a2a40-556ba94bc3efb4b27924",
+          "file": "todomvc.spec.ts",
+          "line": 131,
+          "column": 5
+        },
+        {
+          "title": "persists todos after a page reload",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 929,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Add todo \"Remember me\"",
+                      "duration": 101
+                    },
+                    {
+                      "title": "Reload the page to verify persistence",
+                      "duration": 118
+                    },
+                    {
+                      "title": "Validate rendered todo text order",
+                      "duration": 53
+                    }
+                  ],
+                  "startTime": "2025-12-25T12:58:35.153Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-persists-todos-after-a-page-reload-webkit/test-finished-1.png"
+                    },
+                    {
+                      "name": "action-log",
+                      "contentType": "application/json",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-persists-todos-after-a-page-reload-webkit/attachments/action-log-f7a57bbab426b7a9c35b520cc61c1528c73fd4fe.json"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-persists-todos-after-a-page-reload-webkit/video.webm"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/lifetools/DemoPlaywright/artifacts/test-results/todomvc-persists-todos-after-a-page-reload-webkit/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c8924ce889511a6a2a40-6c34f23eedca29ab12f8",
+          "file": "todomvc.spec.ts",
+          "line": 146,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2025-12-25T12:58:18.211Z",
+    "duration": 17949.381,
+    "expected": 30,
+    "skipped": 12,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "name": "demoplaywright",
+  "version": "1.0.0",
+  "description": "Demo Playwright project featuring 10 TodoMVC test cases with evidence logging.",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:report": "playwright show-report",
+    "test:debug": "PWDEBUG=1 playwright test",
+    "test:reporter-samples": "REPORTER_SAMPLES=1 playwright test tests/reporter-samples.spec.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@playwright/test": "^1.57.0",
+    "@types/node": "^24.10.1",
+    "undici": "^6.19.8",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  }
+}
