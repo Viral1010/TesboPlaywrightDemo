@@ -14,9 +14,9 @@ export default defineConfig({
     [
       './reporters/tesbo-uploader',
       {
-        apiKey: 'tjswpfvdnemtwijdzaqtafvfcbsxujur', // or set env TESBO_API_KEY instead
+        apiKey: 'qyjklipdnchsngperpqvddpvmzskakik', // or set env TESBO_API_KEY instead
         apiKeyEnv: 'TESBO_API_KEY',
-        baseUrl: 'http://localhost:8080/api',
+        baseUrl: 'http://64.227.168.54:8080/api',
         reportFile: 'test-results.json'
       }
     ]
