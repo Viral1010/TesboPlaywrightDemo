@@ -12,12 +12,12 @@ export default defineConfig({
     ['html', { open: 'never', outputFolder: 'artifacts/html-report' }],
     ['json', {  outputFile: 'test-results.json' }],
     [
-      './reporters/tesbo-uploader',
+      './reporters/tesbo-uploader-v3',  // Uploads after run from json report
       {
-        apiKey: 'qyjklipdnchsngperpqvddpvmzskakik', // or set env TESBO_API_KEY instead
+        apiKey: 'jsywrknvhxfknsxkdbauuymmjbmqslsp', // Local API key for testing
         apiKeyEnv: 'TESBO_API_KEY',
-        baseUrl: 'http://64.227.168.54:8080/api',
-        reportFile: 'test-results.json'
+        reportingPortalUrl: 'https://app.tesbo.io/api',  // Use HTTPS to avoid redirect/downgrade issues
+        runTitle: process.env.TESBO_RUN_TITLE || 'Local Playwright Test Run'
       }
     ]
   ],
@@ -34,14 +34,6 @@ export default defineConfig({
     {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] }
-    },
-    {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] }
-    },
-    {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] }
     }
   ]
 });

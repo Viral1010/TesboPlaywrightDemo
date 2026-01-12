@@ -2,7 +2,7 @@
 
 This project automates the official TodoMVC demo hosted at `https://demo.playwright.dev/todomvc`.  
 It ships with ten end-to-end scenarios that document every user interaction with screenshots and JSON logs so you can trace how each locator was validated and exercised.
-
+  baseUrl: 'http://64.227.168.54:8080/api',
 ### Prerequisites
 - Node.js 18+ and npm
 - Browsers installed via `npx playwright install` (already run once for this repo)

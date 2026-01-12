@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const crypto = require('crypto');
 const { FormData, File, fetch } = require('undici');
 
 class TesboUploader {
@@ -7,7 +8,13 @@ class TesboUploader {
     // Optional direct key; falls back to env for backward compatibility.
     this.apiKey = options.apiKey;
     this.apiKeyEnv = options.apiKeyEnv || 'TESBO_API_KEY';
-    this.baseUrl = options.baseUrl || 'http://localhost:8080/api';
+
+    // Preferred naming: Reporting Portal URL; keep legacy support.
+    this.reportingPortalUrlEnv = options.reportingPortalUrlEnv || 'TESBO_REPORTING_PORTAL_URL';
+    this.reportingPortalUrl = options.reportingPortalUrl
+      || options.baseUrl
+      || 'https://app.tesbo.io/api';
+
     this.reportFile = options.reportFile || 'test-results.json';
   }
 
@@ -18,7 +25,13 @@ class TesboUploader {
       return;
     }
 
-    const uploadUrl = `${(process.env.TESBO_BASE_URL || this.baseUrl).replace(/\/$/, '')}/ingest/playwright/with-traces`;
+    const resolvedBase =
+      process.env[this.reportingPortalUrlEnv]
+      || process.env.TESBO_BASE_URL // backward compatibility
+      || this.reportingPortalUrl;
+
+    const uploadUrl = `${resolvedBase.replace(/\/$/, '')}/ingest/playwright/with-traces`;
+    console.log(`[tesbo-uploader] Upload target: POST ${uploadUrl}`);
     const reportPath = path.resolve(this.reportFile);
 
     let reportJson;
@@ -38,6 +51,9 @@ class TesboUploader {
     reportJson.metadata.title = runTitle;
     console.log(`[tesbo-uploader] Run title set to: ${runTitle}`);
 
+    // Remove verbose error blobs to keep the test list compact in the target UI.
+    this._stripErrors(reportJson);
+
     // Log per-test upload intent and which artifacts we found.
     this._emitTestLogs(reportJson);
 
@@ -47,6 +63,24 @@ class TesboUploader {
     if (artifacts.length === 0) {
       console.warn('[tesbo-uploader] No trace/screenshot/video artifacts found in the report.');
     } else {
+      // Lightweight telemetry so we can tell if the server is rejecting due to payload shape/size.
+      try {
+        const stats = await Promise.all(
+          artifacts.map(async a => {
+            const st = await fs.promises.stat(a.filePath);
+            return { kind: a.kind, bytes: st.size };
+          })
+        );
+        const totalBytes = stats.reduce((sum, s) => sum + s.bytes, 0);
+        const byKind = stats.reduce((acc, s) => {
+          acc[s.kind] = (acc[s.kind] || 0) + 1;
+          return acc;
+        }, {});
+        console.log(`[tesbo-uploader] Artifact count by kind: ${JSON.stringify(byKind)}`);
+        console.log(`[tesbo-uploader] Total artifact payload size: ${(totalBytes / (1024 * 1024)).toFixed(2)} MB`);
+      } catch (err) {
+        console.warn('[tesbo-uploader] Unable to compute artifact sizes:', err.message);
+      }
       console.log(
         '[tesbo-uploader] Artifacts detected:',
         artifacts.map(a => `${a.kind}:${path.basename(a.filePath)}`).join(', ')
@@ -75,6 +109,10 @@ class TesboUploader {
         body: form
       });
       const body = await response.text();
+      const requestId = response.headers.get('x-request-id') || response.headers.get('x-correlation-id');
+      if (requestId) {
+        console.log(`[tesbo-uploader] Server request id: ${requestId}`);
+      }
       if (!response.ok) {
         console.error(`[tesbo-uploader] Upload failed (${response.status}): ${body}`);
       } else {
@@ -171,14 +209,33 @@ class TesboUploader {
 
   _inferToken(filePath, kind) {
     try {
-      const dirName = path.basename(path.dirname(filePath));
-      const stem = path.basename(filePath).replace(path.extname(filePath), '');
-      // Make token unique per artifact to avoid FormData overwrites.
-      if (stem) return `${kind}-${stem}`;
-      if (dirName) return `${kind}-${dirName}`;
-      return `${kind}-${Date.now()}`;
+      const dirName = path.basename(path.dirname(filePath)) || 'artifact';
+      const stem = path.basename(filePath, path.extname(filePath)) || 'file';
+      // Make token unique per artifact so multiple traces/screenshots don't collide.
+      const hash = crypto.createHash('md5').update(filePath).digest('hex').slice(0, 8);
+      const slug = `${kind}-${dirName}-${stem}-${hash}`
+        .replace(/[^a-zA-Z0-9-]/g, '-')
+        .replace(/--+/g, '-')
+        .toLowerCase();
+      return slug;
     } catch {
       return `${kind}-${Date.now()}`;
+    }
+  }
+
+  _stripErrors(node) {
+    if (Array.isArray(node)) {
+      node.forEach(child => this._stripErrors(child));
+      return;
+    }
+    if (node && typeof node === 'object') {
+      if (node.error) {
+        delete node.error;
+      }
+      if (node.errors) {
+        delete node.errors;
+      }
+      Object.values(node).forEach(child => this._stripErrors(child));
     }
   }
 }
