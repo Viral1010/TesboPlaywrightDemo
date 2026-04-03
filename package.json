@@ -16,9 +16,10 @@
   "type": "commonjs",
   "devDependencies": {
     "@playwright/test": "^1.57.0",
+    "@tesbox/cli": "^1.2.1",
     "@types/node": "^24.10.1",
-    "undici": "^6.19.8",
     "ts-node": "^10.9.2",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "undici": "^6.19.8"
   }
 }
