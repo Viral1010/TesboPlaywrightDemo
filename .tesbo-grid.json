@@ -1,0 +1,6 @@
+{
+  "framework": "playwright",
+  "language": "typescript",
+  "browser": "chrome",
+  "testDir": "tests"
+}
