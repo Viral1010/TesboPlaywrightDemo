@@ -1,20 +1,22 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Generated scenario 0070', () => {
-  test('generated test 0070', async ({ page }) => {
-    await test.step('warmup wait 55ms', async () => {
-      await page.waitForTimeout(55);
-    });
+test.describe('Inline edit todo – variant 10', () => {
+  test('edits "Run smoke tsts" to "Run smoke tests"', async ({ page }) => {
+    await page.goto('https://demo.playwright.dev/todomvc');
+    await expect(page.getByPlaceholder('What needs to be done?')).toBeVisible();
 
-    await test.step('mid-step wait 50ms', async () => {
-      // Navigate to a lightweight page to keep runtime small.
-      await page.goto('about:blank');
-      await page.waitForTimeout(50);
-    });
+    const input = page.getByPlaceholder('What needs to be done?');
+    await input.fill('Run smoke tsts');
+    await input.press('Enter');
 
-    await test.step('final confirmation 120ms', async () => {
-      await page.waitForTimeout(120);
-      await expect(true).toBeTruthy();
-    });
+    const todoItem = page.locator('.todo-list li').first();
+    const label = todoItem.locator('label');
+    await label.dblclick();
+
+    const editor = todoItem.locator('.edit');
+    await editor.fill('Run smoke tests');
+    await editor.press('Enter');
+
+    await expect(page.locator('.todo-list li label')).toHaveText(['Run smoke tests']);
   });
 });

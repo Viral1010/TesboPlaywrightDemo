@@ -1,20 +1,15 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Generated scenario 0006', () => {
-  test('generated test 0006', async ({ page }) => {
-    await test.step('warmup wait 31ms', async () => {
-      await page.waitForTimeout(31);
-    });
+test.describe('Add single todo – variant 6', () => {
+  test('adds "Deploy feature branch to staging" and verifies it appears in the list', async ({ page }) => {
+    await page.goto('https://demo.playwright.dev/todomvc');
+    await expect(page.getByPlaceholder('What needs to be done?')).toBeVisible();
 
-    await test.step('mid-step wait 68ms', async () => {
-      // Navigate to a lightweight page to keep runtime small.
-      await page.goto('about:blank');
-      await page.waitForTimeout(68);
-    });
+    const input = page.getByPlaceholder('What needs to be done?');
+    await input.fill('Deploy feature branch to staging');
+    await input.press('Enter');
 
-    await test.step('final confirmation 122ms', async () => {
-      await page.waitForTimeout(122);
-      await expect(true).toBeTruthy();
-    });
+    await expect(page.locator('.todo-list li label')).toHaveText(['Deploy feature branch to staging']);
+    await expect(page.locator('.todo-count')).toContainText('1 item');
   });
 });

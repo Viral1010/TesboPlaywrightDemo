@@ -1,20 +1,22 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Generated scenario 0059', () => {
-  test('generated test 0059', async ({ page }) => {
-    await test.step('warmup wait 44ms', async () => {
-      await page.waitForTimeout(44);
-    });
+test.describe('Filter completed todos – variant 9', () => {
+  test('shows only completed todos in Completed filter view', async ({ page }) => {
+    await page.goto('https://demo.playwright.dev/todomvc');
+    await expect(page.getByPlaceholder('What needs to be done?')).toBeVisible();
 
-    await test.step('mid-step wait 87ms', async () => {
-      // Navigate to a lightweight page to keep runtime small.
-      await page.goto('about:blank');
-      await page.waitForTimeout(87);
-    });
+    const input = page.getByPlaceholder('What needs to be done?');
+    await input.fill('Feature A');
+    await input.press('Enter');
+    await input.fill('Feature B');
+    await input.press('Enter');
+    await input.fill('Feature C');
+    await input.press('Enter');
 
-    await test.step('final confirmation 133ms', async () => {
-      await page.waitForTimeout(133);
-      await expect(true).toBeTruthy();
-    });
+    await page.locator('.todo-list li').filter({ hasText: 'Feature A' }).locator('input.toggle').click();
+    await page.locator('.todo-list li').filter({ hasText: 'Feature B' }).locator('input.toggle').click();
+
+    await page.getByRole('link', { name: 'Completed' }).click();
+    await expect(page.locator('.todo-list li label')).toHaveText(['Feature A', 'Feature B']);
   });
 });

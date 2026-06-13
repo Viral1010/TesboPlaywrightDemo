@@ -1,20 +1,19 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Generated scenario 0041', () => {
-  test('generated test 0041', async ({ page }) => {
-    await test.step('warmup wait 26ms', async () => {
-      await page.waitForTimeout(26);
-    });
+test.describe('Filter active todos – variant 1', () => {
+  test('shows only active todos after completing 1 item(s)', async ({ page }) => {
+    await page.goto('https://demo.playwright.dev/todomvc');
+    await expect(page.getByPlaceholder('What needs to be done?')).toBeVisible();
 
-    await test.step('mid-step wait 103ms', async () => {
-      // Navigate to a lightweight page to keep runtime small.
-      await page.goto('about:blank');
-      await page.waitForTimeout(103);
-    });
+    const input = page.getByPlaceholder('What needs to be done?');
+    await input.fill('Active item');
+    await input.press('Enter');
+    await input.fill('Done item');
+    await input.press('Enter');
 
-    await test.step('final confirmation 97ms', async () => {
-      await page.waitForTimeout(97);
-      await expect(true).toBeTruthy();
-    });
+    await page.locator('.todo-list li').filter({ hasText: 'Done item' }).locator('input.toggle').click();
+
+    await page.getByRole('link', { name: 'Active' }).click();
+    await expect(page.locator('.todo-list li label')).toHaveText(['Active item']);
   });
 });

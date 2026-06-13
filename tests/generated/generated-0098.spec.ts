@@ -1,20 +1,19 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Generated scenario 0098', () => {
-  test('generated test 0098', async ({ page }) => {
-    await test.step('warmup wait 43ms', async () => {
-      await page.waitForTimeout(43);
-    });
+test.describe('Reload persistence – variant 8', () => {
+  test('todos survive a page reload (localStorage persistence)', async ({ page }) => {
+    await page.goto('https://demo.playwright.dev/todomvc');
+    await expect(page.getByPlaceholder('What needs to be done?')).toBeVisible();
 
-    await test.step('mid-step wait 64ms', async () => {
-      // Navigate to a lightweight page to keep runtime small.
-      await page.goto('about:blank');
-      await page.waitForTimeout(64);
-    });
+    const input = page.getByPlaceholder('What needs to be done?');
+    await input.fill('Durable item A');
+    await input.press('Enter');
+    await input.fill('Durable item B');
+    await input.press('Enter');
 
-    await test.step('final confirmation 136ms', async () => {
-      await page.waitForTimeout(136);
-      await expect(true).toBeTruthy();
-    });
+    await page.reload();
+    await expect(page.getByPlaceholder('What needs to be done?')).toBeVisible();
+
+    await expect(page.locator('.todo-list li label')).toHaveText(['Durable item A', 'Durable item B']);
   });
 });

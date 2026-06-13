@@ -1,20 +1,21 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Generated scenario 0096', () => {
-  test('generated test 0096', async ({ page }) => {
-    await test.step('warmup wait 41ms', async () => {
-      await page.waitForTimeout(41);
-    });
+test.describe('Reload persistence – variant 6', () => {
+  test('todos survive a page reload (localStorage persistence)', async ({ page }) => {
+    await page.goto('https://demo.playwright.dev/todomvc');
+    await expect(page.getByPlaceholder('What needs to be done?')).toBeVisible();
 
-    await test.step('mid-step wait 58ms', async () => {
-      // Navigate to a lightweight page to keep runtime small.
-      await page.goto('about:blank');
-      await page.waitForTimeout(58);
-    });
+    const input = page.getByPlaceholder('What needs to be done?');
+    await input.fill('Reload check 1');
+    await input.press('Enter');
+    await input.fill('Reload check 2');
+    await input.press('Enter');
+    await input.fill('Reload check 3');
+    await input.press('Enter');
 
-    await test.step('final confirmation 122ms', async () => {
-      await page.waitForTimeout(122);
-      await expect(true).toBeTruthy();
-    });
+    await page.reload();
+    await expect(page.getByPlaceholder('What needs to be done?')).toBeVisible();
+
+    await expect(page.locator('.todo-list li label')).toHaveText(['Reload check 1', 'Reload check 2', 'Reload check 3']);
   });
 });

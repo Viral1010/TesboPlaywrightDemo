@@ -1,20 +1,21 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Generated scenario 0029', () => {
-  test('generated test 0029', async ({ page }) => {
-    await test.step('warmup wait 54ms', async () => {
-      await page.waitForTimeout(54);
-    });
+test.describe('Complete a todo – variant 9', () => {
+  test('marks "Install deps" as completed', async ({ page }) => {
+    await page.goto('https://demo.playwright.dev/todomvc');
+    await expect(page.getByPlaceholder('What needs to be done?')).toBeVisible();
 
-    await test.step('mid-step wait 67ms', async () => {
-      // Navigate to a lightweight page to keep runtime small.
-      await page.goto('about:blank');
-      await page.waitForTimeout(67);
-    });
+    const input = page.getByPlaceholder('What needs to be done?');
+    await input.fill('Setup environment');
+    await input.press('Enter');
+    await input.fill('Install deps');
+    await input.press('Enter');
+    await input.fill('Run tests');
+    await input.press('Enter');
 
-    await test.step('final confirmation 103ms', async () => {
-      await page.waitForTimeout(103);
-      await expect(true).toBeTruthy();
-    });
+    const targetItem = page.locator('.todo-list li').filter({ hasText: 'Install deps' });
+    await targetItem.locator('input.toggle').click();
+
+    await expect(targetItem).toHaveClass(/completed/);
   });
 });

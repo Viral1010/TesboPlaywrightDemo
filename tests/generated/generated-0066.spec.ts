@@ -1,20 +1,22 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Generated scenario 0066', () => {
-  test('generated test 0066', async ({ page }) => {
-    await test.step('warmup wait 51ms', async () => {
-      await page.waitForTimeout(51);
-    });
+test.describe('Inline edit todo – variant 6', () => {
+  test('edits "Update depndencies" to "Update dependencies"', async ({ page }) => {
+    await page.goto('https://demo.playwright.dev/todomvc');
+    await expect(page.getByPlaceholder('What needs to be done?')).toBeVisible();
 
-    await test.step('mid-step wait 108ms', async () => {
-      // Navigate to a lightweight page to keep runtime small.
-      await page.goto('about:blank');
-      await page.waitForTimeout(108);
-    });
+    const input = page.getByPlaceholder('What needs to be done?');
+    await input.fill('Update depndencies');
+    await input.press('Enter');
 
-    await test.step('final confirmation 92ms', async () => {
-      await page.waitForTimeout(92);
-      await expect(true).toBeTruthy();
-    });
+    const todoItem = page.locator('.todo-list li').first();
+    const label = todoItem.locator('label');
+    await label.dblclick();
+
+    const editor = todoItem.locator('.edit');
+    await editor.fill('Update dependencies');
+    await editor.press('Enter');
+
+    await expect(page.locator('.todo-list li label')).toHaveText(['Update dependencies']);
   });
 });

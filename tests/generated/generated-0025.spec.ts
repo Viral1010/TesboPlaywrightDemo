@@ -1,20 +1,21 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Generated scenario 0025', () => {
-  test('generated test 0025', async ({ page }) => {
-    await test.step('warmup wait 50ms', async () => {
-      await page.waitForTimeout(50);
-    });
+test.describe('Complete a todo – variant 5', () => {
+  test('marks "Set goals" as completed', async ({ page }) => {
+    await page.goto('https://demo.playwright.dev/todomvc');
+    await expect(page.getByPlaceholder('What needs to be done?')).toBeVisible();
 
-    await test.step('mid-step wait 55ms', async () => {
-      // Navigate to a lightweight page to keep runtime small.
-      await page.goto('about:blank');
-      await page.waitForTimeout(55);
-    });
+    const input = page.getByPlaceholder('What needs to be done?');
+    await input.fill('Plan week');
+    await input.press('Enter');
+    await input.fill('Set goals');
+    await input.press('Enter');
+    await input.fill('Review OKRs');
+    await input.press('Enter');
 
-    await test.step('final confirmation 165ms', async () => {
-      await page.waitForTimeout(165);
-      await expect(true).toBeTruthy();
-    });
+    const targetItem = page.locator('.todo-list li').filter({ hasText: 'Set goals' });
+    await targetItem.locator('input.toggle').click();
+
+    await expect(targetItem).toHaveClass(/completed/);
   });
 });

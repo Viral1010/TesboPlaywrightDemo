@@ -1,20 +1,15 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Generated scenario 0004', () => {
-  test('generated test 0004', async ({ page }) => {
-    await test.step('warmup wait 29ms', async () => {
-      await page.waitForTimeout(29);
-    });
+test.describe('Add single todo – variant 4', () => {
+  test('adds "Fix critical bug in checkout flow" and verifies it appears in the list', async ({ page }) => {
+    await page.goto('https://demo.playwright.dev/todomvc');
+    await expect(page.getByPlaceholder('What needs to be done?')).toBeVisible();
 
-    await test.step('mid-step wait 62ms', async () => {
-      // Navigate to a lightweight page to keep runtime small.
-      await page.goto('about:blank');
-      await page.waitForTimeout(62);
-    });
+    const input = page.getByPlaceholder('What needs to be done?');
+    await input.fill('Fix critical bug in checkout flow');
+    await input.press('Enter');
 
-    await test.step('final confirmation 108ms', async () => {
-      await page.waitForTimeout(108);
-      await expect(true).toBeTruthy();
-    });
+    await expect(page.locator('.todo-list li label')).toHaveText(['Fix critical bug in checkout flow']);
+    await expect(page.locator('.todo-count')).toContainText('1 item');
   });
 });

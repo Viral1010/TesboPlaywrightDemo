@@ -1,20 +1,15 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Generated scenario 0010', () => {
-  test('generated test 0010', async ({ page }) => {
-    await test.step('warmup wait 35ms', async () => {
-      await page.waitForTimeout(35);
-    });
+test.describe('Add single todo – variant 10', () => {
+  test('adds "Conduct peer code review session" and verifies it appears in the list', async ({ page }) => {
+    await page.goto('https://demo.playwright.dev/todomvc');
+    await expect(page.getByPlaceholder('What needs to be done?')).toBeVisible();
 
-    await test.step('mid-step wait 80ms', async () => {
-      // Navigate to a lightweight page to keep runtime small.
-      await page.goto('about:blank');
-      await page.waitForTimeout(80);
-    });
+    const input = page.getByPlaceholder('What needs to be done?');
+    await input.fill('Conduct peer code review session');
+    await input.press('Enter');
 
-    await test.step('final confirmation 150ms', async () => {
-      await page.waitForTimeout(150);
-      await expect(true).toBeTruthy();
-    });
+    await expect(page.locator('.todo-list li label')).toHaveText(['Conduct peer code review session']);
+    await expect(page.locator('.todo-count')).toContainText('1 item');
   });
 });

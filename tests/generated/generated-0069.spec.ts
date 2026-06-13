@@ -1,20 +1,22 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Generated scenario 0069', () => {
-  test('generated test 0069', async ({ page }) => {
-    await test.step('warmup wait 54ms', async () => {
-      await page.waitForTimeout(54);
-    });
+test.describe('Inline edit todo – variant 9', () => {
+  test('edits "Prepare relase notes" to "Prepare release notes"', async ({ page }) => {
+    await page.goto('https://demo.playwright.dev/todomvc');
+    await expect(page.getByPlaceholder('What needs to be done?')).toBeVisible();
 
-    await test.step('mid-step wait 117ms', async () => {
-      // Navigate to a lightweight page to keep runtime small.
-      await page.goto('about:blank');
-      await page.waitForTimeout(117);
-    });
+    const input = page.getByPlaceholder('What needs to be done?');
+    await input.fill('Prepare relase notes');
+    await input.press('Enter');
 
-    await test.step('final confirmation 113ms', async () => {
-      await page.waitForTimeout(113);
-      await expect(true).toBeTruthy();
-    });
+    const todoItem = page.locator('.todo-list li').first();
+    const label = todoItem.locator('label');
+    await label.dblclick();
+
+    const editor = todoItem.locator('.edit');
+    await editor.fill('Prepare release notes');
+    await editor.press('Enter');
+
+    await expect(page.locator('.todo-list li label')).toHaveText(['Prepare release notes']);
   });
 });

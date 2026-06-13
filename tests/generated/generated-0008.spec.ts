@@ -1,20 +1,15 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Generated scenario 0008', () => {
-  test('generated test 0008', async ({ page }) => {
-    await test.step('warmup wait 33ms', async () => {
-      await page.waitForTimeout(33);
-    });
+test.describe('Add single todo – variant 8', () => {
+  test('adds "Refactor the login module" and verifies it appears in the list', async ({ page }) => {
+    await page.goto('https://demo.playwright.dev/todomvc');
+    await expect(page.getByPlaceholder('What needs to be done?')).toBeVisible();
 
-    await test.step('mid-step wait 74ms', async () => {
-      // Navigate to a lightweight page to keep runtime small.
-      await page.goto('about:blank');
-      await page.waitForTimeout(74);
-    });
+    const input = page.getByPlaceholder('What needs to be done?');
+    await input.fill('Refactor the login module');
+    await input.press('Enter');
 
-    await test.step('final confirmation 136ms', async () => {
-      await page.waitForTimeout(136);
-      await expect(true).toBeTruthy();
-    });
+    await expect(page.locator('.todo-list li label')).toHaveText(['Refactor the login module']);
+    await expect(page.locator('.todo-count')).toContainText('1 item');
   });
 });

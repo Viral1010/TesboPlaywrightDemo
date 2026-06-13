@@ -1,20 +1,22 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Generated scenario 0040', () => {
-  test('generated test 0040', async ({ page }) => {
-    await test.step('warmup wait 25ms', async () => {
-      await page.waitForTimeout(25);
-    });
+test.describe('Delete a todo – variant 10', () => {
+  test('deletes "Agree" and verifies the remaining list', async ({ page }) => {
+    await page.goto('https://demo.playwright.dev/todomvc');
+    await expect(page.getByPlaceholder('What needs to be done?')).toBeVisible();
 
-    await test.step('mid-step wait 100ms', async () => {
-      // Navigate to a lightweight page to keep runtime small.
-      await page.goto('about:blank');
-      await page.waitForTimeout(100);
-    });
+    const input = page.getByPlaceholder('What needs to be done?');
+    await input.fill('Propose');
+    await input.press('Enter');
+    await input.fill('Agree');
+    await input.press('Enter');
+    await input.fill('Deliver');
+    await input.press('Enter');
 
-    await test.step('final confirmation 90ms', async () => {
-      await page.waitForTimeout(90);
-      await expect(true).toBeTruthy();
-    });
+    const targetItem = page.locator('.todo-list li').filter({ hasText: 'Agree' });
+    await targetItem.hover();
+    await targetItem.locator('button.destroy').click();
+
+    await expect(page.locator('.todo-list li label')).toHaveText(['Propose', 'Deliver']);
   });
 });

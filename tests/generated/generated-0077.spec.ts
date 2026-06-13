@@ -1,20 +1,24 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Generated scenario 0077', () => {
-  test('generated test 0077', async ({ page }) => {
-    await test.step('warmup wait 62ms', async () => {
-      await page.waitForTimeout(62);
-    });
+test.describe('Toggle all todos – variant 7', () => {
+  test('marks all 3 todos as completed with toggle-all', async ({ page }) => {
+    await page.goto('https://demo.playwright.dev/todomvc');
+    await expect(page.getByPlaceholder('What needs to be done?')).toBeVisible();
 
-    await test.step('mid-step wait 71ms', async () => {
-      // Navigate to a lightweight page to keep runtime small.
-      await page.goto('about:blank');
-      await page.waitForTimeout(71);
-    });
+    const input = page.getByPlaceholder('What needs to be done?');
+    await input.fill('Plan');
+    await input.press('Enter');
+    await input.fill('Execute');
+    await input.press('Enter');
+    await input.fill('Review');
+    await input.press('Enter');
 
-    await test.step('final confirmation 169ms', async () => {
-      await page.waitForTimeout(169);
-      await expect(true).toBeTruthy();
-    });
+    await page.locator('.toggle-all').check();
+
+    const toggles = page.locator('.todo-list li input.toggle');
+    const count = await toggles.count();
+    for (let i = 0; i < count; i++) {
+      await expect(toggles.nth(i)).toBeChecked();
+    }
   });
 });

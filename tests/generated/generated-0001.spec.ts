@@ -1,20 +1,15 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Generated scenario 0001', () => {
-  test('generated test 0001', async ({ page }) => {
-    await test.step('warmup wait 26ms', async () => {
-      await page.waitForTimeout(26);
-    });
+test.describe('Add single todo – variant 1', () => {
+  test('adds "Learn Playwright end-to-end testing" and verifies it appears in the list', async ({ page }) => {
+    await page.goto('https://demo.playwright.dev/todomvc');
+    await expect(page.getByPlaceholder('What needs to be done?')).toBeVisible();
 
-    await test.step('mid-step wait 53ms', async () => {
-      // Navigate to a lightweight page to keep runtime small.
-      await page.goto('about:blank');
-      await page.waitForTimeout(53);
-    });
+    const input = page.getByPlaceholder('What needs to be done?');
+    await input.fill('Learn Playwright end-to-end testing');
+    await input.press('Enter');
 
-    await test.step('final confirmation 87ms', async () => {
-      await page.waitForTimeout(87);
-      await expect(true).toBeTruthy();
-    });
+    await expect(page.locator('.todo-list li label')).toHaveText(['Learn Playwright end-to-end testing']);
+    await expect(page.locator('.todo-count')).toContainText('1 item');
   });
 });

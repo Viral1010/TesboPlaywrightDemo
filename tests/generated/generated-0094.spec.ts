@@ -1,20 +1,17 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Generated scenario 0094', () => {
-  test('generated test 0094', async ({ page }) => {
-    await test.step('warmup wait 39ms', async () => {
-      await page.waitForTimeout(39);
-    });
+test.describe('Reload persistence – variant 4', () => {
+  test('todos survive a page reload (localStorage persistence)', async ({ page }) => {
+    await page.goto('https://demo.playwright.dev/todomvc');
+    await expect(page.getByPlaceholder('What needs to be done?')).toBeVisible();
 
-    await test.step('mid-step wait 52ms', async () => {
-      // Navigate to a lightweight page to keep runtime small.
-      await page.goto('about:blank');
-      await page.waitForTimeout(52);
-    });
+    const input = page.getByPlaceholder('What needs to be done?');
+    await input.fill('LocalStorage test');
+    await input.press('Enter');
 
-    await test.step('final confirmation 108ms', async () => {
-      await page.waitForTimeout(108);
-      await expect(true).toBeTruthy();
-    });
+    await page.reload();
+    await expect(page.getByPlaceholder('What needs to be done?')).toBeVisible();
+
+    await expect(page.locator('.todo-list li label')).toHaveText(['LocalStorage test']);
   });
 });

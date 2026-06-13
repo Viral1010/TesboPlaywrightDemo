@@ -1,20 +1,19 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Generated scenario 0014', () => {
-  test('generated test 0014', async ({ page }) => {
-    await test.step('warmup wait 39ms', async () => {
-      await page.waitForTimeout(39);
-    });
+test.describe('Add multiple todos – variant 4', () => {
+  test('adds 3 todos and verifies count', async ({ page }) => {
+    await page.goto('https://demo.playwright.dev/todomvc');
+    await expect(page.getByPlaceholder('What needs to be done?')).toBeVisible();
 
-    await test.step('mid-step wait 92ms', async () => {
-      // Navigate to a lightweight page to keep runtime small.
-      await page.goto('about:blank');
-      await page.waitForTimeout(92);
-    });
+    const input = page.getByPlaceholder('What needs to be done?');
+    await input.fill('Write feature tests');
+    await input.press('Enter');
+    await input.fill('Fix ESLint warnings');
+    await input.press('Enter');
+    await input.fill('Submit pull request');
+    await input.press('Enter');
 
-    await test.step('final confirmation 88ms', async () => {
-      await page.waitForTimeout(88);
-      await expect(true).toBeTruthy();
-    });
+    await expect(page.locator('.todo-list li label')).toHaveText(['Write feature tests', 'Fix ESLint warnings', 'Submit pull request']);
+    await expect(page.locator('.todo-count')).toContainText('3 item');
   });
 });

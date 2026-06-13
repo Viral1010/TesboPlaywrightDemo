@@ -1,20 +1,20 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Generated scenario 0031', () => {
-  test('generated test 0031', async ({ page }) => {
-    await test.step('warmup wait 56ms', async () => {
-      await page.waitForTimeout(56);
-    });
+test.describe('Delete a todo – variant 1', () => {
+  test('deletes "Delete this" and verifies the remaining list', async ({ page }) => {
+    await page.goto('https://demo.playwright.dev/todomvc');
+    await expect(page.getByPlaceholder('What needs to be done?')).toBeVisible();
 
-    await test.step('mid-step wait 73ms', async () => {
-      // Navigate to a lightweight page to keep runtime small.
-      await page.goto('about:blank');
-      await page.waitForTimeout(73);
-    });
+    const input = page.getByPlaceholder('What needs to be done?');
+    await input.fill('Keep this');
+    await input.press('Enter');
+    await input.fill('Delete this');
+    await input.press('Enter');
 
-    await test.step('final confirmation 117ms', async () => {
-      await page.waitForTimeout(117);
-      await expect(true).toBeTruthy();
-    });
+    const targetItem = page.locator('.todo-list li').filter({ hasText: 'Delete this' });
+    await targetItem.hover();
+    await targetItem.locator('button.destroy').click();
+
+    await expect(page.locator('.todo-list li label')).toHaveText(['Keep this']);
   });
 });

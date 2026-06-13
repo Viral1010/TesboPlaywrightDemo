@@ -1,20 +1,22 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Generated scenario 0065', () => {
-  test('generated test 0065', async ({ page }) => {
-    await test.step('warmup wait 50ms', async () => {
-      await page.waitForTimeout(50);
-    });
+test.describe('Inline edit todo – variant 5', () => {
+  test('edits "Review PR asap" to "Review PR before EOD"', async ({ page }) => {
+    await page.goto('https://demo.playwright.dev/todomvc');
+    await expect(page.getByPlaceholder('What needs to be done?')).toBeVisible();
 
-    await test.step('mid-step wait 105ms', async () => {
-      // Navigate to a lightweight page to keep runtime small.
-      await page.goto('about:blank');
-      await page.waitForTimeout(105);
-    });
+    const input = page.getByPlaceholder('What needs to be done?');
+    await input.fill('Review PR asap');
+    await input.press('Enter');
 
-    await test.step('final confirmation 85ms', async () => {
-      await page.waitForTimeout(85);
-      await expect(true).toBeTruthy();
-    });
+    const todoItem = page.locator('.todo-list li').first();
+    const label = todoItem.locator('label');
+    await label.dblclick();
+
+    const editor = todoItem.locator('.edit');
+    await editor.fill('Review PR before EOD');
+    await editor.press('Enter');
+
+    await expect(page.locator('.todo-list li label')).toHaveText(['Review PR before EOD']);
   });
 });

@@ -1,20 +1,21 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Generated scenario 0027', () => {
-  test('generated test 0027', async ({ page }) => {
-    await test.step('warmup wait 52ms', async () => {
-      await page.waitForTimeout(52);
-    });
+test.describe('Complete a todo – variant 7', () => {
+  test('marks "Review ERD" as completed', async ({ page }) => {
+    await page.goto('https://demo.playwright.dev/todomvc');
+    await expect(page.getByPlaceholder('What needs to be done?')).toBeVisible();
 
-    await test.step('mid-step wait 61ms', async () => {
-      // Navigate to a lightweight page to keep runtime small.
-      await page.goto('about:blank');
-      await page.waitForTimeout(61);
-    });
+    const input = page.getByPlaceholder('What needs to be done?');
+    await input.fill('Design schema');
+    await input.press('Enter');
+    await input.fill('Review ERD');
+    await input.press('Enter');
+    await input.fill('Migrate data');
+    await input.press('Enter');
 
-    await test.step('final confirmation 89ms', async () => {
-      await page.waitForTimeout(89);
-      await expect(true).toBeTruthy();
-    });
+    const targetItem = page.locator('.todo-list li').filter({ hasText: 'Review ERD' });
+    await targetItem.locator('input.toggle').click();
+
+    await expect(targetItem).toHaveClass(/completed/);
   });
 });

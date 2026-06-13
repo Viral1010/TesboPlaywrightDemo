@@ -1,20 +1,23 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Generated scenario 0083', () => {
-  test('generated test 0083', async ({ page }) => {
-    await test.step('warmup wait 28ms', async () => {
-      await page.waitForTimeout(28);
-    });
+test.describe('Clear completed todos – variant 3', () => {
+  test('clears 2 completed todo(s) and verifies remaining', async ({ page }) => {
+    await page.goto('https://demo.playwright.dev/todomvc');
+    await expect(page.getByPlaceholder('What needs to be done?')).toBeVisible();
 
-    await test.step('mid-step wait 89ms', async () => {
-      // Navigate to a lightweight page to keep runtime small.
-      await page.goto('about:blank');
-      await page.waitForTimeout(89);
-    });
+    const input = page.getByPlaceholder('What needs to be done?');
+    await input.fill('Old bug fix');
+    await input.press('Enter');
+    await input.fill('New feature');
+    await input.press('Enter');
+    await input.fill('Closed ticket');
+    await input.press('Enter');
 
-    await test.step('final confirmation 121ms', async () => {
-      await page.waitForTimeout(121);
-      await expect(true).toBeTruthy();
-    });
+    await page.locator('.todo-list li').filter({ hasText: 'Old bug fix' }).locator('input.toggle').click();
+    await page.locator('.todo-list li').filter({ hasText: 'Closed ticket' }).locator('input.toggle').click();
+
+    await page.getByRole('button', { name: 'Clear completed' }).click();
+
+    await expect(page.locator('.todo-list li label')).toHaveText(['New feature']);
   });
 });

@@ -1,20 +1,19 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Generated scenario 0016', () => {
-  test('generated test 0016', async ({ page }) => {
-    await test.step('warmup wait 41ms', async () => {
-      await page.waitForTimeout(41);
-    });
+test.describe('Add multiple todos – variant 6', () => {
+  test('adds 3 todos and verifies count', async ({ page }) => {
+    await page.goto('https://demo.playwright.dev/todomvc');
+    await expect(page.getByPlaceholder('What needs to be done?')).toBeVisible();
 
-    await test.step('mid-step wait 98ms', async () => {
-      // Navigate to a lightweight page to keep runtime small.
-      await page.goto('about:blank');
-      await page.waitForTimeout(98);
-    });
+    const input = page.getByPlaceholder('What needs to be done?');
+    await input.fill('Study React hooks');
+    await input.press('Enter');
+    await input.fill('Practice TypeScript generics');
+    await input.press('Enter');
+    await input.fill('Build demo app');
+    await input.press('Enter');
 
-    await test.step('final confirmation 102ms', async () => {
-      await page.waitForTimeout(102);
-      await expect(true).toBeTruthy();
-    });
+    await expect(page.locator('.todo-list li label')).toHaveText(['Study React hooks', 'Practice TypeScript generics', 'Build demo app']);
+    await expect(page.locator('.todo-count')).toContainText('3 item');
   });
 });

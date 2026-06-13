@@ -1,20 +1,22 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Generated scenario 0068', () => {
-  test('generated test 0068', async ({ page }) => {
-    await test.step('warmup wait 53ms', async () => {
-      await page.waitForTimeout(53);
-    });
+test.describe('Inline edit todo – variant 8', () => {
+  test('edits "Schedule meeing" to "Schedule team meeting"', async ({ page }) => {
+    await page.goto('https://demo.playwright.dev/todomvc');
+    await expect(page.getByPlaceholder('What needs to be done?')).toBeVisible();
 
-    await test.step('mid-step wait 114ms', async () => {
-      // Navigate to a lightweight page to keep runtime small.
-      await page.goto('about:blank');
-      await page.waitForTimeout(114);
-    });
+    const input = page.getByPlaceholder('What needs to be done?');
+    await input.fill('Schedule meeing');
+    await input.press('Enter');
 
-    await test.step('final confirmation 106ms', async () => {
-      await page.waitForTimeout(106);
-      await expect(true).toBeTruthy();
-    });
+    const todoItem = page.locator('.todo-list li').first();
+    const label = todoItem.locator('label');
+    await label.dblclick();
+
+    const editor = todoItem.locator('.edit');
+    await editor.fill('Schedule team meeting');
+    await editor.press('Enter');
+
+    await expect(page.locator('.todo-list li label')).toHaveText(['Schedule team meeting']);
   });
 });

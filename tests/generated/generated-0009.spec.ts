@@ -1,20 +1,15 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Generated scenario 0009', () => {
-  test('generated test 0009', async ({ page }) => {
-    await test.step('warmup wait 34ms', async () => {
-      await page.waitForTimeout(34);
-    });
+test.describe('Add single todo – variant 9', () => {
+  test('adds "Set up GitHub Actions CI pipeline" and verifies it appears in the list', async ({ page }) => {
+    await page.goto('https://demo.playwright.dev/todomvc');
+    await expect(page.getByPlaceholder('What needs to be done?')).toBeVisible();
 
-    await test.step('mid-step wait 77ms', async () => {
-      // Navigate to a lightweight page to keep runtime small.
-      await page.goto('about:blank');
-      await page.waitForTimeout(77);
-    });
+    const input = page.getByPlaceholder('What needs to be done?');
+    await input.fill('Set up GitHub Actions CI pipeline');
+    await input.press('Enter');
 
-    await test.step('final confirmation 143ms', async () => {
-      await page.waitForTimeout(143);
-      await expect(true).toBeTruthy();
-    });
+    await expect(page.locator('.todo-list li label')).toHaveText(['Set up GitHub Actions CI pipeline']);
+    await expect(page.locator('.todo-count')).toContainText('1 item');
   });
 });

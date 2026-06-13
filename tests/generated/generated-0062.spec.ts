@@ -1,20 +1,22 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Generated scenario 0062', () => {
-  test('generated test 0062', async ({ page }) => {
-    await test.step('warmup wait 47ms', async () => {
-      await page.waitForTimeout(47);
-    });
+test.describe('Inline edit todo – variant 2', () => {
+  test('edits "Fix typo in readme" to "Fix typo in README.md"', async ({ page }) => {
+    await page.goto('https://demo.playwright.dev/todomvc');
+    await expect(page.getByPlaceholder('What needs to be done?')).toBeVisible();
 
-    await test.step('mid-step wait 96ms', async () => {
-      // Navigate to a lightweight page to keep runtime small.
-      await page.goto('about:blank');
-      await page.waitForTimeout(96);
-    });
+    const input = page.getByPlaceholder('What needs to be done?');
+    await input.fill('Fix typo in readme');
+    await input.press('Enter');
 
-    await test.step('final confirmation 154ms', async () => {
-      await page.waitForTimeout(154);
-      await expect(true).toBeTruthy();
-    });
+    const todoItem = page.locator('.todo-list li').first();
+    const label = todoItem.locator('label');
+    await label.dblclick();
+
+    const editor = todoItem.locator('.edit');
+    await editor.fill('Fix typo in README.md');
+    await editor.press('Enter');
+
+    await expect(page.locator('.todo-list li label')).toHaveText(['Fix typo in README.md']);
   });
 });
