@@ -1,24 +1,19 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Toggle all todos – variant 7', () => {
-  test('marks all 3 todos as completed with toggle-all', async ({ page }) => {
+test.describe('Add multiple todos – batch 28', () => {
+  test('adds 3 todos and verifies list and count', async ({ page }) => {
     await page.goto('https://demo.playwright.dev/todomvc');
     await expect(page.getByPlaceholder('What needs to be done?')).toBeVisible();
 
     const input = page.getByPlaceholder('What needs to be done?');
-    await input.fill('Plan');
+    await input.fill('Create deployment checklist');
     await input.press('Enter');
-    await input.fill('Execute');
+    await input.fill('Setup pre-flight checks');
     await input.press('Enter');
-    await input.fill('Review');
+    await input.fill('Document rollback steps');
     await input.press('Enter');
 
-    await page.locator('.toggle-all').check();
-
-    const toggles = page.locator('.todo-list li input.toggle');
-    const count = await toggles.count();
-    for (let i = 0; i < count; i++) {
-      await expect(toggles.nth(i)).toBeChecked();
-    }
+    await expect(page.locator('.todo-list li label')).toHaveText(['Create deployment checklist', 'Setup pre-flight checks', 'Document rollback steps']);
+    await expect(page.locator('.todo-count')).toContainText('3 item');
   });
 });

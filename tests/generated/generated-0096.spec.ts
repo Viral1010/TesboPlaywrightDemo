@@ -1,21 +1,19 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Reload persistence – variant 6', () => {
-  test('todos survive a page reload (localStorage persistence)', async ({ page }) => {
+test.describe('Add multiple todos – batch 47', () => {
+  test('adds 3 todos and verifies list and count', async ({ page }) => {
     await page.goto('https://demo.playwright.dev/todomvc');
     await expect(page.getByPlaceholder('What needs to be done?')).toBeVisible();
 
     const input = page.getByPlaceholder('What needs to be done?');
-    await input.fill('Reload check 1');
+    await input.fill('Implement graceful degradation');
     await input.press('Enter');
-    await input.fill('Reload check 2');
+    await input.fill('Add fallback UI');
     await input.press('Enter');
-    await input.fill('Reload check 3');
+    await input.fill('Setup error boundaries');
     await input.press('Enter');
 
-    await page.reload();
-    await expect(page.getByPlaceholder('What needs to be done?')).toBeVisible();
-
-    await expect(page.locator('.todo-list li label')).toHaveText(['Reload check 1', 'Reload check 2', 'Reload check 3']);
+    await expect(page.locator('.todo-list li label')).toHaveText(['Implement graceful degradation', 'Add fallback UI', 'Setup error boundaries']);
+    await expect(page.locator('.todo-count')).toContainText('3 item');
   });
 });

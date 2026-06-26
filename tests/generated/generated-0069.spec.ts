@@ -1,22 +1,19 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Inline edit todo – variant 9', () => {
-  test('edits "Prepare relase notes" to "Prepare release notes"', async ({ page }) => {
+test.describe('Add multiple todos – batch 20', () => {
+  test('adds 3 todos and verifies list and count', async ({ page }) => {
     await page.goto('https://demo.playwright.dev/todomvc');
     await expect(page.getByPlaceholder('What needs to be done?')).toBeVisible();
 
     const input = page.getByPlaceholder('What needs to be done?');
-    await input.fill('Prepare relase notes');
+    await input.fill('Implement API versioning');
+    await input.press('Enter');
+    await input.fill('Deprecate old endpoints');
+    await input.press('Enter');
+    await input.fill('Create migration guide');
     await input.press('Enter');
 
-    const todoItem = page.locator('.todo-list li').first();
-    const label = todoItem.locator('label');
-    await label.dblclick();
-
-    const editor = todoItem.locator('.edit');
-    await editor.fill('Prepare release notes');
-    await editor.press('Enter');
-
-    await expect(page.locator('.todo-list li label')).toHaveText(['Prepare release notes']);
+    await expect(page.locator('.todo-list li label')).toHaveText(['Implement API versioning', 'Deprecate old endpoints', 'Create migration guide']);
+    await expect(page.locator('.todo-count')).toContainText('3 item');
   });
 });

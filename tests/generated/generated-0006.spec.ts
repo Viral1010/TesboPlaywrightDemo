@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Add single todo – variant 6', () => {
-  test('adds "Deploy feature branch to staging" and verifies it appears in the list', async ({ page }) => {
+test.describe('Add single todo – scenario 6', () => {
+  test('adds "Deploy feature branch to staging" to the todo list', async ({ page }) => {
     await page.goto('https://demo.playwright.dev/todomvc');
     await expect(page.getByPlaceholder('What needs to be done?')).toBeVisible();
 

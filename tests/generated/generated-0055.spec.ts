@@ -1,22 +1,19 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Filter completed todos – variant 5', () => {
-  test('shows only completed todos in Completed filter view', async ({ page }) => {
+test.describe('Add multiple todos – batch 6', () => {
+  test('adds 3 todos and verifies list and count', async ({ page }) => {
     await page.goto('https://demo.playwright.dev/todomvc');
     await expect(page.getByPlaceholder('What needs to be done?')).toBeVisible();
 
     const input = page.getByPlaceholder('What needs to be done?');
-    await input.fill('Draft');
+    await input.fill('Study React hooks');
     await input.press('Enter');
-    await input.fill('Review');
+    await input.fill('Practice TypeScript generics');
     await input.press('Enter');
-    await input.fill('Published');
+    await input.fill('Build demo app');
     await input.press('Enter');
 
-    await page.locator('.todo-list li').filter({ hasText: 'Draft' }).locator('input.toggle').click();
-    await page.locator('.todo-list li').filter({ hasText: 'Review' }).locator('input.toggle').click();
-
-    await page.getByRole('link', { name: 'Completed' }).click();
-    await expect(page.locator('.todo-list li label')).toHaveText(['Draft', 'Review']);
+    await expect(page.locator('.todo-list li label')).toHaveText(['Study React hooks', 'Practice TypeScript generics', 'Build demo app']);
+    await expect(page.locator('.todo-count')).toContainText('3 item');
   });
 });

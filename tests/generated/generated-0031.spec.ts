@@ -1,20 +1,15 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Delete a todo – variant 1', () => {
-  test('deletes "Delete this" and verifies the remaining list', async ({ page }) => {
+test.describe('Add single todo – scenario 31', () => {
+  test('adds "Implement webhook system" to the todo list', async ({ page }) => {
     await page.goto('https://demo.playwright.dev/todomvc');
     await expect(page.getByPlaceholder('What needs to be done?')).toBeVisible();
 
     const input = page.getByPlaceholder('What needs to be done?');
-    await input.fill('Keep this');
-    await input.press('Enter');
-    await input.fill('Delete this');
+    await input.fill('Implement webhook system');
     await input.press('Enter');
 
-    const targetItem = page.locator('.todo-list li').filter({ hasText: 'Delete this' });
-    await targetItem.hover();
-    await targetItem.locator('button.destroy').click();
-
-    await expect(page.locator('.todo-list li label')).toHaveText(['Keep this']);
+    await expect(page.locator('.todo-list li label')).toHaveText(['Implement webhook system']);
+    await expect(page.locator('.todo-count')).toContainText('1 item');
   });
 });

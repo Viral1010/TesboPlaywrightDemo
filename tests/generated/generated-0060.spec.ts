@@ -1,22 +1,19 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Filter completed todos – variant 10', () => {
-  test('shows only completed todos in Completed filter view', async ({ page }) => {
+test.describe('Add multiple todos – batch 11', () => {
+  test('adds 3 todos and verifies list and count', async ({ page }) => {
     await page.goto('https://demo.playwright.dev/todomvc');
     await expect(page.getByPlaceholder('What needs to be done?')).toBeVisible();
 
     const input = page.getByPlaceholder('What needs to be done?');
-    await input.fill('Morning');
+    await input.fill('Backup critical data');
     await input.press('Enter');
-    await input.fill('Afternoon');
+    await input.fill('Verify backup integrity');
     await input.press('Enter');
-    await input.fill('Evening');
+    await input.fill('Document recovery process');
     await input.press('Enter');
 
-    await page.locator('.todo-list li').filter({ hasText: 'Morning' }).locator('input.toggle').click();
-    await page.locator('.todo-list li').filter({ hasText: 'Evening' }).locator('input.toggle').click();
-
-    await page.getByRole('link', { name: 'Completed' }).click();
-    await expect(page.locator('.todo-list li label')).toHaveText(['Morning', 'Evening']);
+    await expect(page.locator('.todo-list li label')).toHaveText(['Backup critical data', 'Verify backup integrity', 'Document recovery process']);
+    await expect(page.locator('.todo-count')).toContainText('3 item');
   });
 });

@@ -1,21 +1,15 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Complete a todo – variant 10', () => {
-  test('marks "Create branch" as completed', async ({ page }) => {
+test.describe('Add single todo – scenario 30', () => {
+  test('adds "Setup error tracking system" to the todo list', async ({ page }) => {
     await page.goto('https://demo.playwright.dev/todomvc');
     await expect(page.getByPlaceholder('What needs to be done?')).toBeVisible();
 
     const input = page.getByPlaceholder('What needs to be done?');
-    await input.fill('Create branch');
-    await input.press('Enter');
-    await input.fill('Implement feature');
-    await input.press('Enter');
-    await input.fill('Open PR');
+    await input.fill('Setup error tracking system');
     await input.press('Enter');
 
-    const targetItem = page.locator('.todo-list li').filter({ hasText: 'Create branch' });
-    await targetItem.locator('input.toggle').click();
-
-    await expect(targetItem).toHaveClass(/completed/);
+    await expect(page.locator('.todo-list li label')).toHaveText(['Setup error tracking system']);
+    await expect(page.locator('.todo-count')).toContainText('1 item');
   });
 });

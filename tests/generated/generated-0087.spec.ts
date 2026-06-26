@@ -1,22 +1,19 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Clear completed todos – variant 7', () => {
-  test('clears 1 completed todo(s) and verifies remaining', async ({ page }) => {
+test.describe('Add multiple todos – batch 38', () => {
+  test('adds 3 todos and verifies list and count', async ({ page }) => {
     await page.goto('https://demo.playwright.dev/todomvc');
     await expect(page.getByPlaceholder('What needs to be done?')).toBeVisible();
 
     const input = page.getByPlaceholder('What needs to be done?');
-    await input.fill('Released v1');
+    await input.fill('Create service health checks');
     await input.press('Enter');
-    await input.fill('Plan v2');
+    await input.fill('Implement heartbeat monitoring');
     await input.press('Enter');
-    await input.fill('Fix regression');
+    await input.fill('Setup alerts');
     await input.press('Enter');
 
-    await page.locator('.todo-list li').filter({ hasText: 'Released v1' }).locator('input.toggle').click();
-
-    await page.getByRole('button', { name: 'Clear completed' }).click();
-
-    await expect(page.locator('.todo-list li label')).toHaveText(['Plan v2', 'Fix regression']);
+    await expect(page.locator('.todo-list li label')).toHaveText(['Create service health checks', 'Implement heartbeat monitoring', 'Setup alerts']);
+    await expect(page.locator('.todo-count')).toContainText('3 item');
   });
 });

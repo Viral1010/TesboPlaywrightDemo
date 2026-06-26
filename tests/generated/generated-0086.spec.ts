@@ -1,23 +1,19 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Clear completed todos – variant 6', () => {
-  test('clears 2 completed todo(s) and verifies remaining', async ({ page }) => {
+test.describe('Add multiple todos – batch 37', () => {
+  test('adds 3 todos and verifies list and count', async ({ page }) => {
     await page.goto('https://demo.playwright.dev/todomvc');
     await expect(page.getByPlaceholder('What needs to be done?')).toBeVisible();
 
     const input = page.getByPlaceholder('What needs to be done?');
-    await input.fill('Completed sprint');
+    await input.fill('Setup chaos engineering tests');
     await input.press('Enter');
-    await input.fill('New backlog');
+    await input.fill('Plan failure scenarios');
     await input.press('Enter');
-    await input.fill('Done epic');
+    await input.fill('Document mitigation');
     await input.press('Enter');
 
-    await page.locator('.todo-list li').filter({ hasText: 'Completed sprint' }).locator('input.toggle').click();
-    await page.locator('.todo-list li').filter({ hasText: 'Done epic' }).locator('input.toggle').click();
-
-    await page.getByRole('button', { name: 'Clear completed' }).click();
-
-    await expect(page.locator('.todo-list li label')).toHaveText(['New backlog']);
+    await expect(page.locator('.todo-list li label')).toHaveText(['Setup chaos engineering tests', 'Plan failure scenarios', 'Document mitigation']);
+    await expect(page.locator('.todo-count')).toContainText('3 item');
   });
 });

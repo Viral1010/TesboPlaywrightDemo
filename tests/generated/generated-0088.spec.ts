@@ -1,23 +1,19 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Clear completed todos – variant 8', () => {
-  test('clears 2 completed todo(s) and verifies remaining', async ({ page }) => {
+test.describe('Add multiple todos – batch 39', () => {
+  test('adds 3 todos and verifies list and count', async ({ page }) => {
     await page.goto('https://demo.playwright.dev/todomvc');
     await expect(page.getByPlaceholder('What needs to be done?')).toBeVisible();
 
     const input = page.getByPlaceholder('What needs to be done?');
-    await input.fill('Closed deal');
+    await input.fill('Implement request tracing');
     await input.press('Enter');
-    await input.fill('New prospect');
+    await input.fill('Add timing instrumentation');
     await input.press('Enter');
-    await input.fill('Sent proposal');
+    await input.fill('Create performance report');
     await input.press('Enter');
 
-    await page.locator('.todo-list li').filter({ hasText: 'Closed deal' }).locator('input.toggle').click();
-    await page.locator('.todo-list li').filter({ hasText: 'Sent proposal' }).locator('input.toggle').click();
-
-    await page.getByRole('button', { name: 'Clear completed' }).click();
-
-    await expect(page.locator('.todo-list li label')).toHaveText(['New prospect']);
+    await expect(page.locator('.todo-list li label')).toHaveText(['Implement request tracing', 'Add timing instrumentation', 'Create performance report']);
+    await expect(page.locator('.todo-count')).toContainText('3 item');
   });
 });

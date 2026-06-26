@@ -1,21 +1,15 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Filter active todos – variant 6', () => {
-  test('shows only active todos after completing 1 item(s)', async ({ page }) => {
+test.describe('Add single todo – scenario 46', () => {
+  test('adds "Implement backup verification system" to the todo list', async ({ page }) => {
     await page.goto('https://demo.playwright.dev/todomvc');
     await expect(page.getByPlaceholder('What needs to be done?')).toBeVisible();
 
     const input = page.getByPlaceholder('What needs to be done?');
-    await input.fill('Code review');
-    await input.press('Enter');
-    await input.fill('Unit tests');
-    await input.press('Enter');
-    await input.fill('Deploy');
+    await input.fill('Implement backup verification system');
     await input.press('Enter');
 
-    await page.locator('.todo-list li').filter({ hasText: 'Unit tests' }).locator('input.toggle').click();
-
-    await page.getByRole('link', { name: 'Active' }).click();
-    await expect(page.locator('.todo-list li label')).toHaveText(['Code review', 'Deploy']);
+    await expect(page.locator('.todo-list li label')).toHaveText(['Implement backup verification system']);
+    await expect(page.locator('.todo-count')).toContainText('1 item');
   });
 });

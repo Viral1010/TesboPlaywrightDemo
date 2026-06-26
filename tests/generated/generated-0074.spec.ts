@@ -1,26 +1,19 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Toggle all todos – variant 4', () => {
-  test('marks all 4 todos as completed with toggle-all', async ({ page }) => {
+test.describe('Add multiple todos – batch 25', () => {
+  test('adds 3 todos and verifies list and count', async ({ page }) => {
     await page.goto('https://demo.playwright.dev/todomvc');
     await expect(page.getByPlaceholder('What needs to be done?')).toBeVisible();
 
     const input = page.getByPlaceholder('What needs to be done?');
-    await input.fill('Design');
+    await input.fill('Create user roles');
     await input.press('Enter');
-    await input.fill('Develop');
+    await input.fill('Assign permissions');
     await input.press('Enter');
-    await input.fill('Test');
-    await input.press('Enter');
-    await input.fill('Deploy');
+    await input.fill('Implement authorization');
     await input.press('Enter');
 
-    await page.locator('.toggle-all').check();
-
-    const toggles = page.locator('.todo-list li input.toggle');
-    const count = await toggles.count();
-    for (let i = 0; i < count; i++) {
-      await expect(toggles.nth(i)).toBeChecked();
-    }
+    await expect(page.locator('.todo-list li label')).toHaveText(['Create user roles', 'Assign permissions', 'Implement authorization']);
+    await expect(page.locator('.todo-count')).toContainText('3 item');
   });
 });

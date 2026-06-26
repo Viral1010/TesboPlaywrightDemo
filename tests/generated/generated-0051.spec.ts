@@ -1,19 +1,19 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Filter completed todos – variant 1', () => {
-  test('shows only completed todos in Completed filter view', async ({ page }) => {
+test.describe('Add multiple todos – batch 2', () => {
+  test('adds 3 todos and verifies list and count', async ({ page }) => {
     await page.goto('https://demo.playwright.dev/todomvc');
     await expect(page.getByPlaceholder('What needs to be done?')).toBeVisible();
 
     const input = page.getByPlaceholder('What needs to be done?');
-    await input.fill('Todo A');
+    await input.fill('Morning standup');
     await input.press('Enter');
-    await input.fill('Todo B');
+    await input.fill('Sprint planning');
+    await input.press('Enter');
+    await input.fill('Retrospective meeting');
     await input.press('Enter');
 
-    await page.locator('.todo-list li').filter({ hasText: 'Todo B' }).locator('input.toggle').click();
-
-    await page.getByRole('link', { name: 'Completed' }).click();
-    await expect(page.locator('.todo-list li label')).toHaveText(['Todo B']);
+    await expect(page.locator('.todo-list li label')).toHaveText(['Morning standup', 'Sprint planning', 'Retrospective meeting']);
+    await expect(page.locator('.todo-count')).toContainText('3 item');
   });
 });

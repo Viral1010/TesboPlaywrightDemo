@@ -1,20 +1,19 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Clear completed todos – variant 1', () => {
-  test('clears 1 completed todo(s) and verifies remaining', async ({ page }) => {
+test.describe('Add multiple todos – batch 32', () => {
+  test('adds 3 todos and verifies list and count', async ({ page }) => {
     await page.goto('https://demo.playwright.dev/todomvc');
     await expect(page.getByPlaceholder('What needs to be done?')).toBeVisible();
 
     const input = page.getByPlaceholder('What needs to be done?');
-    await input.fill('Done task');
+    await input.fill('Create database backup schedule');
     await input.press('Enter');
-    await input.fill('Active task');
+    await input.fill('Automate backups');
+    await input.press('Enter');
+    await input.fill('Test restore process');
     await input.press('Enter');
 
-    await page.locator('.todo-list li').filter({ hasText: 'Done task' }).locator('input.toggle').click();
-
-    await page.getByRole('button', { name: 'Clear completed' }).click();
-
-    await expect(page.locator('.todo-list li label')).toHaveText(['Active task']);
+    await expect(page.locator('.todo-list li label')).toHaveText(['Create database backup schedule', 'Automate backups', 'Test restore process']);
+    await expect(page.locator('.todo-count')).toContainText('3 item');
   });
 });

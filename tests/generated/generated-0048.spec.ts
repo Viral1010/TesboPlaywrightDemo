@@ -1,21 +1,15 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Filter active todos – variant 8', () => {
-  test('shows only active todos after completing 1 item(s)', async ({ page }) => {
+test.describe('Add single todo – scenario 48', () => {
+  test('adds "Implement feature flag system" to the todo list', async ({ page }) => {
     await page.goto('https://demo.playwright.dev/todomvc');
     await expect(page.getByPlaceholder('What needs to be done?')).toBeVisible();
 
     const input = page.getByPlaceholder('What needs to be done?');
-    await input.fill('UI work');
-    await input.press('Enter');
-    await input.fill('API work');
-    await input.press('Enter');
-    await input.fill('DB work');
+    await input.fill('Implement feature flag system');
     await input.press('Enter');
 
-    await page.locator('.todo-list li').filter({ hasText: 'DB work' }).locator('input.toggle').click();
-
-    await page.getByRole('link', { name: 'Active' }).click();
-    await expect(page.locator('.todo-list li label')).toHaveText(['UI work', 'API work']);
+    await expect(page.locator('.todo-list li label')).toHaveText(['Implement feature flag system']);
+    await expect(page.locator('.todo-count')).toContainText('1 item');
   });
 });

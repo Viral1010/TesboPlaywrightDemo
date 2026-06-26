@@ -1,23 +1,19 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Clear completed todos – variant 2', () => {
-  test('clears 2 completed todo(s) and verifies remaining', async ({ page }) => {
+test.describe('Add multiple todos – batch 33', () => {
+  test('adds 3 todos and verifies list and count', async ({ page }) => {
     await page.goto('https://demo.playwright.dev/todomvc');
     await expect(page.getByPlaceholder('What needs to be done?')).toBeVisible();
 
     const input = page.getByPlaceholder('What needs to be done?');
-    await input.fill('Finished A');
+    await input.fill('Setup distributed tracing');
     await input.press('Enter');
-    await input.fill('Ongoing B');
+    await input.fill('Implement correlation IDs');
     await input.press('Enter');
-    await input.fill('Finished C');
+    await input.fill('Analyze latency');
     await input.press('Enter');
 
-    await page.locator('.todo-list li').filter({ hasText: 'Finished A' }).locator('input.toggle').click();
-    await page.locator('.todo-list li').filter({ hasText: 'Finished C' }).locator('input.toggle').click();
-
-    await page.getByRole('button', { name: 'Clear completed' }).click();
-
-    await expect(page.locator('.todo-list li label')).toHaveText(['Ongoing B']);
+    await expect(page.locator('.todo-list li label')).toHaveText(['Setup distributed tracing', 'Implement correlation IDs', 'Analyze latency']);
+    await expect(page.locator('.todo-count')).toContainText('3 item');
   });
 });

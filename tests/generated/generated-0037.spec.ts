@@ -1,22 +1,15 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Delete a todo – variant 7', () => {
-  test('deletes "Test" and verifies the remaining list', async ({ page }) => {
+test.describe('Add single todo – scenario 37', () => {
+  test('adds "Implement email notification system" to the todo list', async ({ page }) => {
     await page.goto('https://demo.playwright.dev/todomvc');
     await expect(page.getByPlaceholder('What needs to be done?')).toBeVisible();
 
     const input = page.getByPlaceholder('What needs to be done?');
-    await input.fill('Design');
-    await input.press('Enter');
-    await input.fill('Build');
-    await input.press('Enter');
-    await input.fill('Test');
+    await input.fill('Implement email notification system');
     await input.press('Enter');
 
-    const targetItem = page.locator('.todo-list li').filter({ hasText: 'Test' });
-    await targetItem.hover();
-    await targetItem.locator('button.destroy').click();
-
-    await expect(page.locator('.todo-list li label')).toHaveText(['Design', 'Build']);
+    await expect(page.locator('.todo-list li label')).toHaveText(['Implement email notification system']);
+    await expect(page.locator('.todo-count')).toContainText('1 item');
   });
 });

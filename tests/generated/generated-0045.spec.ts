@@ -1,21 +1,15 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Filter active todos – variant 5', () => {
-  test('shows only active todos after completing 1 item(s)', async ({ page }) => {
+test.describe('Add single todo – scenario 45', () => {
+  test('adds "Setup compliance audit trail" to the todo list', async ({ page }) => {
     await page.goto('https://demo.playwright.dev/todomvc');
     await expect(page.getByPlaceholder('What needs to be done?')).toBeVisible();
 
     const input = page.getByPlaceholder('What needs to be done?');
-    await input.fill('Meeting prep');
-    await input.press('Enter');
-    await input.fill('Follow up');
-    await input.press('Enter');
-    await input.fill('Send agenda');
+    await input.fill('Setup compliance audit trail');
     await input.press('Enter');
 
-    await page.locator('.todo-list li').filter({ hasText: 'Send agenda' }).locator('input.toggle').click();
-
-    await page.getByRole('link', { name: 'Active' }).click();
-    await expect(page.locator('.todo-list li label')).toHaveText(['Meeting prep', 'Follow up']);
+    await expect(page.locator('.todo-list li label')).toHaveText(['Setup compliance audit trail']);
+    await expect(page.locator('.todo-count')).toContainText('1 item');
   });
 });

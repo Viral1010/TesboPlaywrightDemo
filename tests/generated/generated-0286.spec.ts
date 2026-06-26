@@ -1,0 +1,22 @@
+import { test, expect } from '@playwright/test';
+
+test.describe('Filter completed todos – test 38', () => {
+  test('displays only completed todos in Completed filter', async ({ page }) => {
+    await page.goto('https://demo.playwright.dev/todomvc');
+    await expect(page.getByPlaceholder('What needs to be done?')).toBeVisible();
+
+    const input = page.getByPlaceholder('What needs to be done?');
+    await input.fill('Ticket 1');
+    await input.press('Enter');
+    await input.fill('Ticket 2');
+    await input.press('Enter');
+    await input.fill('Ticket 3');
+    await input.press('Enter');
+
+    await page.locator('.todo-list li').filter({ hasText: 'Ticket 1' }).locator('input.toggle').click();
+    await page.locator('.todo-list li').filter({ hasText: 'Ticket 2' }).locator('input.toggle').click();
+
+    await page.getByRole('link', { name: 'Completed' }).click();
+    await expect(page.locator('.todo-list li label')).toHaveText(['Ticket 1', 'Ticket 2']);
+  });
+});

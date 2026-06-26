@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Add single todo – variant 2', () => {
-  test('adds "Write unit tests for auth module" and verifies it appears in the list', async ({ page }) => {
+test.describe('Add single todo – scenario 2', () => {
+  test('adds "Write unit tests for auth module" to the todo list', async ({ page }) => {
     await page.goto('https://demo.playwright.dev/todomvc');
     await expect(page.getByPlaceholder('What needs to be done?')).toBeVisible();
 

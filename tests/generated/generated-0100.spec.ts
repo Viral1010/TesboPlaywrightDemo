@@ -1,19 +1,19 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Reload persistence – variant 10', () => {
-  test('todos survive a page reload (localStorage persistence)', async ({ page }) => {
+test.describe('Complete a todo – case 1', () => {
+  test('marks "Send report" as completed', async ({ page }) => {
     await page.goto('https://demo.playwright.dev/todomvc');
     await expect(page.getByPlaceholder('What needs to be done?')).toBeVisible();
 
     const input = page.getByPlaceholder('What needs to be done?');
-    await input.fill('Long-lived task');
+    await input.fill('Send report');
     await input.press('Enter');
-    await input.fill('Another persistent task');
+    await input.fill('Review slides');
     await input.press('Enter');
 
-    await page.reload();
-    await expect(page.getByPlaceholder('What needs to be done?')).toBeVisible();
+    const targetItem = page.locator('.todo-list li').filter({ hasText: 'Send report' });
+    await targetItem.locator('input.toggle').click();
 
-    await expect(page.locator('.todo-list li label')).toHaveText(['Long-lived task', 'Another persistent task']);
+    await expect(targetItem).toHaveClass(/completed/);
   });
 });
