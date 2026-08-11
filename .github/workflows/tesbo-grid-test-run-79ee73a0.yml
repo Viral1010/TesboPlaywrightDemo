@@ -1,0 +1,26 @@
+name: Tesbo Grid — Test Run
+
+# Managed by Tesbo Grid — do not edit manually. Re-run setup from
+# your Tesbo Grid project's Scheduled Runs page if you need changes.
+
+on:
+  workflow_dispatch:
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+      - name: Run Tesbo Grid suite
+        env:
+          TESBOX_API_KEY: ${{ secrets.TESBO_GRID_API_KEY }}
+        run: |
+          npx -y @tesbox/cli run "**/*.{spec,test}.{ts,tsx,js,jsx,mjs,cjs,py,java}" --api-url "https://run.tesbogrid.com" --project-id d839e4ae-2f5f-4e1c-a9ae-3a09da64f20c --framework selenium --language java --browser chrome
